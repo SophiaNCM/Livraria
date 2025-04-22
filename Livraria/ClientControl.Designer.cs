@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnOff = new System.Windows.Forms.RadioButton();
             this.btnOn = new System.Windows.Forms.RadioButton();
@@ -89,6 +89,7 @@
             // btnOff
             // 
             this.btnOff.AutoSize = true;
+            this.btnOff.Enabled = false;
             this.btnOff.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.btnOff.ForeColor = System.Drawing.Color.DarkRed;
             this.btnOff.Location = new System.Drawing.Point(510, 385);
@@ -102,6 +103,7 @@
             // btnOn
             // 
             this.btnOn.AutoSize = true;
+            this.btnOn.Enabled = false;
             this.btnOn.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.btnOn.ForeColor = System.Drawing.Color.DarkRed;
             this.btnOn.Location = new System.Drawing.Point(441, 385);
@@ -133,6 +135,8 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.Maroon;
+            this.btnCancel.Enabled = false;
             this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
@@ -144,10 +148,13 @@
             this.btnCancel.Size = new System.Drawing.Size(217, 37);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnRemove
             // 
+            this.btnRemove.BackColor = System.Drawing.Color.Maroon;
+            this.btnRemove.Enabled = false;
             this.btnRemove.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.btnRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
@@ -159,10 +166,12 @@
             this.btnRemove.Size = new System.Drawing.Size(217, 37);
             this.btnRemove.TabIndex = 4;
             this.btnRemove.Text = "Remover";
-            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.UseVisualStyleBackColor = false;
             // 
             // btnChange
             // 
+            this.btnChange.BackColor = System.Drawing.Color.Maroon;
+            this.btnChange.Enabled = false;
             this.btnChange.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnChange.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.btnChange.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
@@ -174,10 +183,12 @@
             this.btnChange.Size = new System.Drawing.Size(217, 37);
             this.btnChange.TabIndex = 3;
             this.btnChange.Text = "Alterar";
-            this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.UseVisualStyleBackColor = false;
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.Color.Maroon;
+            this.btnSave.Enabled = false;
             this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
@@ -189,7 +200,7 @@
             this.btnSave.Size = new System.Drawing.Size(217, 37);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Salvar";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // btnNew
             // 
@@ -209,6 +220,7 @@
             // 
             // nameText
             // 
+            this.nameText.Enabled = false;
             this.nameText.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.nameText.Location = new System.Drawing.Point(136, 86);
             this.nameText.Name = "nameText";
@@ -228,7 +240,6 @@
             // 
             // ClientTitle
             // 
-            this.ClientTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ClientTitle.AutoSize = true;
             this.ClientTitle.Font = new System.Drawing.Font("Malgun Gothic", 18F, System.Drawing.FontStyle.Bold);
             this.ClientTitle.ForeColor = System.Drawing.Color.DarkRed;
@@ -240,6 +251,7 @@
             // 
             // emailInput
             // 
+            this.emailInput.Enabled = false;
             this.emailInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.emailInput.Location = new System.Drawing.Point(136, 138);
             this.emailInput.Name = "emailInput";
@@ -259,6 +271,7 @@
             // 
             // phoneInput
             // 
+            this.phoneInput.Enabled = false;
             this.phoneInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.phoneInput.Location = new System.Drawing.Point(424, 138);
             this.phoneInput.Name = "phoneInput";
@@ -278,6 +291,7 @@
             // 
             // cpfInput
             // 
+            this.cpfInput.Enabled = false;
             this.cpfInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.cpfInput.Location = new System.Drawing.Point(424, 183);
             this.cpfInput.Name = "cpfInput";
@@ -297,6 +311,7 @@
             // 
             // numberInput
             // 
+            this.numberInput.Enabled = false;
             this.numberInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.numberInput.Location = new System.Drawing.Point(424, 227);
             this.numberInput.Name = "numberInput";
@@ -316,6 +331,7 @@
             // 
             // logradouroInput
             // 
+            this.logradouroInput.Enabled = false;
             this.logradouroInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.logradouroInput.Location = new System.Drawing.Point(136, 227);
             this.logradouroInput.Name = "logradouroInput";
@@ -346,6 +362,7 @@
             // 
             // ComplementoInput
             // 
+            this.ComplementoInput.Enabled = false;
             this.ComplementoInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.ComplementoInput.Location = new System.Drawing.Point(136, 277);
             this.ComplementoInput.Name = "ComplementoInput";
@@ -365,6 +382,7 @@
             // 
             // BairroInput
             // 
+            this.BairroInput.Enabled = false;
             this.BairroInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.BairroInput.Location = new System.Drawing.Point(424, 277);
             this.BairroInput.Name = "BairroInput";
@@ -384,6 +402,7 @@
             // 
             // CityInput
             // 
+            this.CityInput.Enabled = false;
             this.CityInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.CityInput.Location = new System.Drawing.Point(136, 329);
             this.CityInput.Name = "CityInput";
@@ -403,6 +422,7 @@
             // 
             // cepInput
             // 
+            this.cepInput.Enabled = false;
             this.cepInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.cepInput.Location = new System.Drawing.Point(424, 329);
             this.cepInput.Name = "cepInput";
@@ -433,6 +453,7 @@
             // 
             // statesOption
             // 
+            this.statesOption.Enabled = false;
             this.statesOption.FormattingEnabled = true;
             this.statesOption.Items.AddRange(new object[] {
             "SP",
@@ -446,6 +467,7 @@
             // 
             // peopleOption
             // 
+            this.peopleOption.Enabled = false;
             this.peopleOption.FormattingEnabled = true;
             this.peopleOption.Items.AddRange(new object[] {
             "juridica",
@@ -460,14 +482,14 @@
             this.dataView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataView.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataView.Location = new System.Drawing.Point(117, 525);
             this.dataView.MultiSelect = false;
             this.dataView.Name = "dataView";

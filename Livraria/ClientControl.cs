@@ -50,6 +50,23 @@ namespace Livraria
             btnSave.Enabled = false;
             btnSave.BackColor = Color.Maroon;
             btnSave.ForeColor = Color.Gray;
+            
+            //Inputs
+            nameText.Enabled = false;
+            emailInput.Enabled = false;
+            phoneInput.Enabled = false;
+            peopleOption.Enabled = false;
+            cpfInput.Enabled = false;
+            logradouroInput.Enabled = false;
+            numberInput.Enabled = false;
+            ComplementoInput.Enabled = false;
+            BairroInput.Enabled = false;
+            CityInput.Enabled = false;
+            cepInput.Enabled = false;
+            statesOption.Enabled = false;
+            btnOn.Enabled = false;
+            btnOff.Enabled = false;
+            
 
         }
         private void habilitaCampos()
@@ -69,11 +86,32 @@ namespace Livraria
             Search.Text = "";
             dataView.DataSource = null;
 
+            //inputs
+            nameText.Enabled = true;
+            emailInput.Enabled = true;
+            phoneInput.Enabled = true;
+            peopleOption.Enabled = true;
+            cpfInput.Enabled = true;
+            logradouroInput.Enabled = true;
+            numberInput.Enabled = true;
+            ComplementoInput.Enabled = true;
+            BairroInput.Enabled = true;
+            CityInput.Enabled = true;
+            cepInput.Enabled = true;
+            statesOption.Enabled = true;
+            btnOn.Enabled = true;
+            btnOff.Enabled = true;
+
         }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
             habilitaCampos();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            desabilitaCampos();
         }
     }
 }
