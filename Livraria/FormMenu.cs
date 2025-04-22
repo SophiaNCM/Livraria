@@ -16,13 +16,17 @@ namespace Livraria
         {
             InitializeComponent();
             employeeControl1.Visible = false;
+            clientControl1.Visible = false;
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
             
             if (employeeControl1.Visible == false){ employeeControl1.Visible = true;}else{ employeeControl1.Visible = false;}
-           
+            if(clientControl1.Visible == true)
+            {
+                clientControl1.Visible = false;
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -36,6 +40,15 @@ namespace Livraria
         {
             userOutput.Text = Login.user;
 
+        }
+
+        private void btnClient_Click(object sender, EventArgs e)
+        {
+            if(employeeControl1.Visible == true)
+            {
+                employeeControl1.Visible = false;
+            }
+            if (clientControl1.Visible == false) { clientControl1.Visible = true; } else { clientControl1.Visible = false; }
         }
     }
 }

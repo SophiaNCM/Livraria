@@ -226,6 +226,7 @@
             this.btnClient.TabIndex = 2;
             this.btnClient.Text = "Cliente";
             this.btnClient.UseVisualStyleBackColor = false;
+            this.btnClient.Click += new System.EventHandler(this.btnClient_Click);
             // 
             // btnEmployee
             // 
