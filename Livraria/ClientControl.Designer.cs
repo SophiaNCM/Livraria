@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PasswordInput = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -69,6 +69,10 @@
             this.Search = new System.Windows.Forms.Label();
             this.cnpjInput = new System.Windows.Forms.TextBox();
             this.cnpj = new System.Windows.Forms.Label();
+            this.mskPhone = new System.Windows.Forms.MaskedTextBox();
+            this.mskCPF = new System.Windows.Forms.MaskedTextBox();
+            this.mskCNPJ = new System.Windows.Forms.MaskedTextBox();
+            this.mskCEP = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.SuspendLayout();
@@ -276,6 +280,7 @@
             this.phoneInput.Enabled = false;
             this.phoneInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.phoneInput.Location = new System.Drawing.Point(424, 138);
+            this.phoneInput.MaxLength = 11;
             this.phoneInput.Name = "phoneInput";
             this.phoneInput.Size = new System.Drawing.Size(207, 25);
             this.phoneInput.TabIndex = 12;
@@ -486,14 +491,14 @@
             this.dataView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataView.Location = new System.Drawing.Point(117, 525);
             this.dataView.MultiSelect = false;
             this.dataView.Name = "dataView";
@@ -524,7 +529,7 @@
             // 
             this.cnpjInput.Enabled = false;
             this.cnpjInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.cnpjInput.Location = new System.Drawing.Point(424, 183);
+            this.cnpjInput.Location = new System.Drawing.Point(423, 183);
             this.cnpjInput.MaxLength = 14;
             this.cnpjInput.Name = "cnpjInput";
             this.cnpjInput.Size = new System.Drawing.Size(207, 25);
@@ -535,16 +540,60 @@
             this.cnpj.AutoSize = true;
             this.cnpj.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.cnpj.ForeColor = System.Drawing.Color.DarkRed;
-            this.cnpj.Location = new System.Drawing.Point(370, 183);
+            this.cnpj.Location = new System.Drawing.Point(369, 183);
             this.cnpj.Name = "cnpj";
             this.cnpj.Size = new System.Drawing.Size(48, 19);
             this.cnpj.TabIndex = 34;
             this.cnpj.Text = "CNPJ:";
             // 
+            // mskPhone
+            // 
+            this.mskPhone.Enabled = false;
+            this.mskPhone.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.mskPhone.Location = new System.Drawing.Point(424, 138);
+            this.mskPhone.Mask = "(00) 00000-0000";
+            this.mskPhone.Name = "mskPhone";
+            this.mskPhone.Size = new System.Drawing.Size(207, 25);
+            this.mskPhone.TabIndex = 36;
+            // 
+            // mskCPF
+            // 
+            this.mskCPF.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.mskCPF.Location = new System.Drawing.Point(424, 183);
+            this.mskCPF.Mask = "000.000.000-00";
+            this.mskCPF.Name = "mskCPF";
+            this.mskCPF.Size = new System.Drawing.Size(206, 25);
+            this.mskCPF.TabIndex = 37;
+            this.mskCPF.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskCPF_MaskInputRejected);
+            // 
+            // mskCNPJ
+            // 
+            this.mskCNPJ.Enabled = false;
+            this.mskCNPJ.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.mskCNPJ.Location = new System.Drawing.Point(424, 183);
+            this.mskCNPJ.Mask = "00.000.000/0000-00";
+            this.mskCNPJ.Name = "mskCNPJ";
+            this.mskCNPJ.Size = new System.Drawing.Size(206, 25);
+            this.mskCNPJ.TabIndex = 38;
+            // 
+            // mskCEP
+            // 
+            this.mskCEP.Enabled = false;
+            this.mskCEP.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.mskCEP.Location = new System.Drawing.Point(424, 329);
+            this.mskCEP.Mask = "00000-000";
+            this.mskCEP.Name = "mskCEP";
+            this.mskCEP.Size = new System.Drawing.Size(206, 25);
+            this.mskCEP.TabIndex = 39;
+            // 
             // ClientControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.mskCEP);
+            this.Controls.Add(this.mskCNPJ);
+            this.Controls.Add(this.mskCPF);
+            this.Controls.Add(this.mskPhone);
             this.Controls.Add(this.cnpjInput);
             this.Controls.Add(this.cnpj);
             this.Controls.Add(this.dataView);
@@ -631,5 +680,9 @@
         private System.Windows.Forms.Label Search;
         private System.Windows.Forms.TextBox cnpjInput;
         private System.Windows.Forms.Label cnpj;
+        private System.Windows.Forms.MaskedTextBox mskPhone;
+        private System.Windows.Forms.MaskedTextBox mskCPF;
+        private System.Windows.Forms.MaskedTextBox mskCNPJ;
+        private System.Windows.Forms.MaskedTextBox mskCEP;
     }
 }

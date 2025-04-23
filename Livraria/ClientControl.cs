@@ -32,6 +32,7 @@ namespace Livraria
 
             btnSave.ForeColor = Color.White;
             btnNew.Enabled = true;
+            btnNew.BackColor = Color.DarkRed;
 
             btnCancel.Enabled = false;
             btnCancel.BackColor = Color.Maroon;
@@ -57,6 +58,9 @@ namespace Livraria
             phoneInput.Enabled = false;
             peopleOption.Enabled = false;
             cpfInput.Enabled = false;
+            mskCNPJ.Enabled = false;
+            cnpjInput.Enabled = false;
+            mskCPF.Enabled = false;
             logradouroInput.Enabled = false;
             numberInput.Enabled = false;
             ComplementoInput.Enabled = false;
@@ -66,6 +70,9 @@ namespace Livraria
             statesOption.Enabled = false;
             btnOn.Enabled = false;
             btnOff.Enabled = false;
+            mskPhone.Enabled = false;
+            mskCEP.Enabled = false;
+            
             
 
         }
@@ -91,7 +98,8 @@ namespace Livraria
             emailInput.Enabled = true;
             phoneInput.Enabled = true;
             peopleOption.Enabled = true;
-            cpfInput.Enabled = true;
+            cnpjInput.Enabled = true;
+            mskCNPJ.Enabled= true;
             logradouroInput.Enabled = true;
             numberInput.Enabled = true;
             ComplementoInput.Enabled = true;
@@ -101,6 +109,8 @@ namespace Livraria
             statesOption.Enabled = true;
             btnOn.Enabled = true;
             btnOff.Enabled = true;
+            mskPhone.Enabled = true;
+            mskCEP.Enabled = true;
 
         }
         private void limparCampos()
@@ -111,6 +121,7 @@ namespace Livraria
             phoneInput.Clear();
             peopleOption.SelectedIndex =-1;
             cpfInput.Clear();
+            cnpjInput.Clear();
             logradouroInput.Clear();
             numberInput.Clear();
             ComplementoInput.Clear();
@@ -143,10 +154,15 @@ namespace Livraria
                     cpfInput.Enabled = false;
                     cpfInput.Visible = false;
 
-                    cnpj.Enabled = false;
-                    cnpj.Visible = false;
+                    cnpj.Enabled = true;
+                    cnpj.Visible = true;
                     cnpjInput.Enabled = false;
-                    cnpjInput.Visible = false;
+                    cnpjInput.Visible = true;
+
+                    mskCPF.Enabled = false;
+                    mskCNPJ.Enabled = false;
+                    mskCPF.Visible = false;
+                    mskCNPJ.Visible = false;
 
                     break;
                 case 0:
@@ -159,6 +175,13 @@ namespace Livraria
                     cnpj.Visible = true;
                     cnpjInput.Enabled = true;
                     cnpjInput.Visible = true;
+
+
+                    mskCPF.Enabled = false;
+                    mskCNPJ.Enabled = true;
+
+                    mskCPF.Visible = false;
+                    mskCNPJ.Visible = true;
                     break;
                 case 1:
                     CPF.Enabled = true;
@@ -171,8 +194,19 @@ namespace Livraria
                     cnpjInput.Enabled = false;
                     cnpjInput.Visible = false;
 
+
+                    mskCPF.Enabled = true;
+                    mskCNPJ.Enabled = false;
+
+                    mskCPF.Visible = true;
+                    mskCNPJ.Visible = false;
                     break;
             }
+        }
+
+        private void mskCPF_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }
