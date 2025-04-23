@@ -197,11 +197,11 @@ namespace Livraria
             {
                 MessageBox.Show("É necessario escolher o tipo de pessoa e o seu estado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            if(cnpjInput.Text == "" || cpfInput.Text =="")
+            if(mskCNPJ.Text == "" || mskCPF.Text =="")
             {
                 MessageBox.Show("É necessario preencher os CPF ou CNPJ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            if (NameInput.Text == "" || emailInput.Text == "" || mskPhone.Text == "" || logradouroInput.Text == "" || numberInput.Text == "" || ComplementoInput.Text == ""|| BairroInput.Text =="" || CityInput.Text == "" || cepInput.Text == "")
+            if (NameInput.Text == "" || emailInput.Text == "" || mskPhone.Text == "" || logradouroInput.Text == "" || numberInput.Text == "" || ComplementoInput.Text == ""|| BairroInput.Text =="" || CityInput.Text == "" || mskCEP.Text == "")
             {
                 MessageBox.Show("É necessario preencher todos os campos", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
