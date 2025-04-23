@@ -25,7 +25,7 @@ namespace Livraria
         SqlCommand cm = new SqlCommand();
 
         //meio que vai montar uma tabela aqui 
-        SqlDataReader dt;
+        //SqlDataReader dt;
 
         private void desabilitaCampos()
         {
@@ -35,15 +35,18 @@ namespace Livraria
             NumberLabel.Visible = false;
             btnSave.ForeColor = Color.White;
             btnNew.Enabled = true;
+            btnNew.BackColor = Color.DarkRed;
 
+            btnOn.Enabled = false;
+            btnOff.Enabled = false;
             nameText.Enabled = false;
-            nameText.BackColor = Color.Gray;
+  
 
             UserInput.Enabled = false;
-            UserInput.BackColor = Color.Gray;
+      
 
             PasswordInput.Enabled = false;
-            PasswordInput.BackColor = Color.Gray;
+     
 
             btnCancel.Enabled = false;
             btnCancel.BackColor = Color.Maroon;
@@ -66,14 +69,18 @@ namespace Livraria
         }
         private void habilitaCampos()
         {
+
+            btnOn.Enabled = true;
+            btnOff.Enabled = true;
+
             nameText.Enabled = true;
-            nameText.BackColor = Color.White;
+  
 
             UserInput.Enabled = true;
-            UserInput.BackColor = Color.White;
+      
 
             PasswordInput.Enabled = true;
-            PasswordInput.BackColor = Color.White;
+        
 
             btnCancel.Enabled = true;
             btnCancel.BackColor = Color.DarkRed;
@@ -220,13 +227,13 @@ namespace Livraria
             btnSave.BackColor = Color.Maroon;
 
             nameText.Enabled = true;
-            nameText.BackColor = Color.White;
+      
 
             UserInput.Enabled = true;
-            UserInput.BackColor = Color.White;
+    
 
             PasswordInput.Enabled = true;
-            PasswordInput.BackColor = Color.White;
+
 
             idLabel.Enabled = true;
             NumberLabel.Enabled = true;
@@ -262,13 +269,15 @@ namespace Livraria
             }
             else
             {
-                btnOff.Enabled = false;
+                btnRemove.Enabled = false;
+                btnRemove.BackColor = Color.Maroon;
             }
         }
 
         private void btnChange_Click(object sender, EventArgs e)
         {
-            if (nameText.Text == "" || User.Text == "" || PasswordInput.Text == "" || NumberLabel.Text == "")
+            
+            if (NameInput.Text == "" || User.Text == "" || PasswordInput.Text == "" || NumberLabel.Text == "")
             {
                 MessageBox.Show("Há campos não preenchidos", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -284,7 +293,7 @@ namespace Livraria
                     int id = Convert.ToInt32(NumberLabel.Text);
                     string name = nameText.Text;
                     string password = PasswordInput.Text;
-                    string login = User.Text;
+                    string login = UserInput.Text;
                     int status = 0;
                     if (btnOn.Checked)
                     {

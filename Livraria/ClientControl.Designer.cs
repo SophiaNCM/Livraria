@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnOff = new System.Windows.Forms.RadioButton();
-            this.btnOn = new System.Windows.Forms.RadioButton();
-            this.status = new System.Windows.Forms.Label();
             this.PasswordInput = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnChange = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
+            this.btnOff = new System.Windows.Forms.RadioButton();
+            this.btnOn = new System.Windows.Forms.RadioButton();
+            this.status = new System.Windows.Forms.Label();
             this.nameText = new System.Windows.Forms.TextBox();
             this.NameInput = new System.Windows.Forms.Label();
             this.ClientTitle = new System.Windows.Forms.Label();
@@ -67,6 +67,8 @@
             this.dataView = new System.Windows.Forms.DataGridView();
             this.SearchInput = new System.Windows.Forms.TextBox();
             this.Search = new System.Windows.Forms.Label();
+            this.cnpjInput = new System.Windows.Forms.TextBox();
+            this.cnpj = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.SuspendLayout();
@@ -85,45 +87,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(277, 739);
             this.panel1.TabIndex = 1;
-            // 
-            // btnOff
-            // 
-            this.btnOff.AutoSize = true;
-            this.btnOff.Enabled = false;
-            this.btnOff.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnOff.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnOff.Location = new System.Drawing.Point(510, 385);
-            this.btnOff.Name = "btnOff";
-            this.btnOff.Size = new System.Drawing.Size(74, 23);
-            this.btnOff.TabIndex = 15;
-            this.btnOff.TabStop = true;
-            this.btnOff.Text = "Inativo";
-            this.btnOff.UseVisualStyleBackColor = true;
-            // 
-            // btnOn
-            // 
-            this.btnOn.AutoSize = true;
-            this.btnOn.Enabled = false;
-            this.btnOn.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnOn.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnOn.Location = new System.Drawing.Point(441, 385);
-            this.btnOn.Name = "btnOn";
-            this.btnOn.Size = new System.Drawing.Size(63, 23);
-            this.btnOn.TabIndex = 14;
-            this.btnOn.TabStop = true;
-            this.btnOn.Text = "Ativo";
-            this.btnOn.UseVisualStyleBackColor = true;
-            // 
-            // status
-            // 
-            this.status.AutoSize = true;
-            this.status.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.status.ForeColor = System.Drawing.Color.DarkRed;
-            this.status.Location = new System.Drawing.Point(380, 385);
-            this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(54, 19);
-            this.status.TabIndex = 13;
-            this.status.Text = "Status:";
             // 
             // PasswordInput
             // 
@@ -218,6 +181,45 @@
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
+            // btnOff
+            // 
+            this.btnOff.AutoSize = true;
+            this.btnOff.Enabled = false;
+            this.btnOff.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnOff.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnOff.Location = new System.Drawing.Point(510, 385);
+            this.btnOff.Name = "btnOff";
+            this.btnOff.Size = new System.Drawing.Size(74, 23);
+            this.btnOff.TabIndex = 15;
+            this.btnOff.TabStop = true;
+            this.btnOff.Text = "Inativo";
+            this.btnOff.UseVisualStyleBackColor = true;
+            // 
+            // btnOn
+            // 
+            this.btnOn.AutoSize = true;
+            this.btnOn.Enabled = false;
+            this.btnOn.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnOn.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnOn.Location = new System.Drawing.Point(441, 385);
+            this.btnOn.Name = "btnOn";
+            this.btnOn.Size = new System.Drawing.Size(63, 23);
+            this.btnOn.TabIndex = 14;
+            this.btnOn.TabStop = true;
+            this.btnOn.Text = "Ativo";
+            this.btnOn.UseVisualStyleBackColor = true;
+            // 
+            // status
+            // 
+            this.status.AutoSize = true;
+            this.status.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.status.ForeColor = System.Drawing.Color.DarkRed;
+            this.status.Location = new System.Drawing.Point(380, 385);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(54, 19);
+            this.status.TabIndex = 13;
+            this.status.Text = "Status:";
+            // 
             // nameText
             // 
             this.nameText.Enabled = false;
@@ -294,6 +296,7 @@
             this.cpfInput.Enabled = false;
             this.cpfInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.cpfInput.Location = new System.Drawing.Point(424, 183);
+            this.cpfInput.MaxLength = 11;
             this.cpfInput.Name = "cpfInput";
             this.cpfInput.Size = new System.Drawing.Size(207, 25);
             this.cpfInput.TabIndex = 14;
@@ -476,20 +479,21 @@
             this.peopleOption.Name = "peopleOption";
             this.peopleOption.Size = new System.Drawing.Size(196, 21);
             this.peopleOption.TabIndex = 30;
+            this.peopleOption.SelectedIndexChanged += new System.EventHandler(this.peopleOption_SelectedIndexChanged);
             // 
             // dataView
             // 
             this.dataView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataView.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataView.Location = new System.Drawing.Point(117, 525);
             this.dataView.MultiSelect = false;
             this.dataView.Name = "dataView";
@@ -516,10 +520,33 @@
             this.Search.TabIndex = 32;
             this.Search.Text = "Pesquisar por cliente";
             // 
+            // cnpjInput
+            // 
+            this.cnpjInput.Enabled = false;
+            this.cnpjInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.cnpjInput.Location = new System.Drawing.Point(424, 183);
+            this.cnpjInput.MaxLength = 14;
+            this.cnpjInput.Name = "cnpjInput";
+            this.cnpjInput.Size = new System.Drawing.Size(207, 25);
+            this.cnpjInput.TabIndex = 35;
+            // 
+            // cnpj
+            // 
+            this.cnpj.AutoSize = true;
+            this.cnpj.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.cnpj.ForeColor = System.Drawing.Color.DarkRed;
+            this.cnpj.Location = new System.Drawing.Point(370, 183);
+            this.cnpj.Name = "cnpj";
+            this.cnpj.Size = new System.Drawing.Size(48, 19);
+            this.cnpj.TabIndex = 34;
+            this.cnpj.Text = "CNPJ:";
+            // 
             // ClientControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cnpjInput);
+            this.Controls.Add(this.cnpj);
             this.Controls.Add(this.dataView);
             this.Controls.Add(this.SearchInput);
             this.Controls.Add(this.Search);
@@ -602,5 +629,7 @@
         private System.Windows.Forms.DataGridView dataView;
         private System.Windows.Forms.TextBox SearchInput;
         private System.Windows.Forms.Label Search;
+        private System.Windows.Forms.TextBox cnpjInput;
+        private System.Windows.Forms.Label cnpj;
     }
 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.NumberLabel = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
@@ -95,6 +95,7 @@
             // idLabel
             // 
             this.idLabel.AutoSize = true;
+            this.idLabel.Enabled = false;
             this.idLabel.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.idLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.idLabel.Location = new System.Drawing.Point(33, 75);
@@ -102,6 +103,7 @@
             this.idLabel.Size = new System.Drawing.Size(26, 19);
             this.idLabel.TabIndex = 16;
             this.idLabel.Text = "Id:";
+            this.idLabel.Visible = false;
             // 
             // btnOff
             // 
@@ -143,6 +145,7 @@
             // 
             // PasswordInput
             // 
+            this.PasswordInput.Enabled = false;
             this.PasswordInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.PasswordInput.Location = new System.Drawing.Point(96, 210);
             this.PasswordInput.Name = "PasswordInput";
@@ -162,6 +165,7 @@
             // 
             // UserInput
             // 
+            this.UserInput.Enabled = false;
             this.UserInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.UserInput.Location = new System.Drawing.Point(96, 158);
             this.UserInput.Name = "UserInput";
@@ -181,6 +185,7 @@
             // 
             // nameText
             // 
+            this.nameText.Enabled = false;
             this.nameText.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.nameText.Location = new System.Drawing.Point(96, 111);
             this.nameText.Name = "nameText";
@@ -328,14 +333,14 @@
             this.dataView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataView.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataView.Location = new System.Drawing.Point(126, 121);
             this.dataView.MultiSelect = false;
             this.dataView.Name = "dataView";

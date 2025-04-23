@@ -71,7 +71,7 @@ namespace Livraria
         }
         private void habilitaCampos()
         {
-
+            //botoes
             btnCancel.Enabled = true;
             btnCancel.BackColor = Color.DarkRed;
             btnCancel.ForeColor = Color.White;
@@ -103,6 +103,25 @@ namespace Livraria
             btnOff.Enabled = true;
 
         }
+        private void limparCampos()
+        {
+            //inputs
+            nameText.Clear();
+            emailInput.Clear();
+            phoneInput.Clear();
+            peopleOption.SelectedIndex =-1;
+            cpfInput.Clear();
+            logradouroInput.Clear();
+            numberInput.Clear();
+            ComplementoInput.Clear();
+            BairroInput.Clear();
+            CityInput.Clear();
+            cepInput.Clear();
+            statesOption.SelectedIndex = -1;
+            btnOn.Checked = false;
+            btnOff.Checked = false;
+
+        }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
@@ -111,7 +130,49 @@ namespace Livraria
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            limparCampos();
             desabilitaCampos();
+        }
+
+        private void peopleOption_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (peopleOption.SelectedIndex) {
+                case -1:
+                    CPF.Enabled = false;
+                    CPF.Visible = false;
+                    cpfInput.Enabled = false;
+                    cpfInput.Visible = false;
+
+                    cnpj.Enabled = false;
+                    cnpj.Visible = false;
+                    cnpjInput.Enabled = false;
+                    cnpjInput.Visible = false;
+
+                    break;
+                case 0:
+                    CPF.Enabled = false;
+                    CPF.Visible = false;
+                    cpfInput.Enabled= false;
+                    cpfInput.Visible= false;
+
+                    cnpj.Enabled = true;
+                    cnpj.Visible = true;
+                    cnpjInput.Enabled = true;
+                    cnpjInput.Visible = true;
+                    break;
+                case 1:
+                    CPF.Enabled = true;
+                    CPF.Visible = true;
+                    cpfInput.Enabled = true;
+                    cpfInput.Visible = true;
+
+                    cnpj.Enabled = false;
+                    cnpj.Visible = false;
+                    cnpjInput.Enabled = false;
+                    cnpjInput.Visible = false;
+
+                    break;
+            }
         }
     }
 }
