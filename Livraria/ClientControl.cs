@@ -55,18 +55,16 @@ namespace Livraria
             //Inputs
             nameText.Enabled = false;
             emailInput.Enabled = false;
-            phoneInput.Enabled = false;
+            mskPhone.Enabled = false;
             peopleOption.Enabled = false;
-            cpfInput.Enabled = false;
-            mskCNPJ.Enabled = false;
-            cnpjInput.Enabled = false;
+            mskCPF.Enabled = false;
+            mskCNPJ.Enabled = false; 
             mskCPF.Enabled = false;
             logradouroInput.Enabled = false;
             numberInput.Enabled = false;
             ComplementoInput.Enabled = false;
             BairroInput.Enabled = false;
             CityInput.Enabled = false;
-            cepInput.Enabled = false;
             statesOption.Enabled = false;
             btnOn.Enabled = false;
             btnOff.Enabled = false;
@@ -96,16 +94,15 @@ namespace Livraria
             //inputs
             nameText.Enabled = true;
             emailInput.Enabled = true;
-            phoneInput.Enabled = true;
+            mskPhone.Enabled = true;
             peopleOption.Enabled = true;
-            cnpjInput.Enabled = true;
+            mskCPF.Enabled = true;
             mskCNPJ.Enabled= true;
             logradouroInput.Enabled = true;
             numberInput.Enabled = true;
             ComplementoInput.Enabled = true;
             BairroInput.Enabled = true;
             CityInput.Enabled = true;
-            cepInput.Enabled = true;
             statesOption.Enabled = true;
             btnOn.Enabled = true;
             btnOff.Enabled = true;
@@ -118,16 +115,16 @@ namespace Livraria
             //inputs
             nameText.Clear();
             emailInput.Clear();
-            phoneInput.Clear();
+            mskPhone.Clear();
             peopleOption.SelectedIndex =-1;
-            cpfInput.Clear();
-            cnpjInput.Clear();
+            mskCPF.Clear();
+            mskCNPJ.Clear();
             logradouroInput.Clear();
             numberInput.Clear();
             ComplementoInput.Clear();
             BairroInput.Clear();
             CityInput.Clear();
-            cepInput.Clear();
+            mskCEP.Clear();
             statesOption.SelectedIndex = -1;
             btnOn.Checked = false;
             btnOff.Checked = false;
@@ -151,62 +148,67 @@ namespace Livraria
                 case -1:
                     CPF.Enabled = false;
                     CPF.Visible = false;
-                    cpfInput.Enabled = false;
-                    cpfInput.Visible = false;
+                    mskCPF.Enabled = false;
+                    mskCPF.Visible = false;
 
                     cnpj.Enabled = true;
                     cnpj.Visible = true;
-                    cnpjInput.Enabled = false;
-                    cnpjInput.Visible = true;
-
-                    mskCPF.Enabled = false;
                     mskCNPJ.Enabled = false;
-                    mskCPF.Visible = false;
-                    mskCNPJ.Visible = false;
+                    mskCNPJ.Visible = true;
+
 
                     break;
                 case 0:
                     CPF.Enabled = false;
                     CPF.Visible = false;
-                    cpfInput.Enabled= false;
-                    cpfInput.Visible= false;
+                    mskCPF.Enabled= false;
+                    mskCPF.Visible= false;
 
                     cnpj.Enabled = true;
                     cnpj.Visible = true;
-                    cnpjInput.Enabled = true;
-                    cnpjInput.Visible = true;
-
-
-                    mskCPF.Enabled = false;
                     mskCNPJ.Enabled = true;
-
-                    mskCPF.Visible = false;
                     mskCNPJ.Visible = true;
-                    break;
+
+
+                        break;
                 case 1:
                     CPF.Enabled = true;
                     CPF.Visible = true;
-                    cpfInput.Enabled = true;
-                    cpfInput.Visible = true;
+                    mskCPF.Enabled = true;
+                    mskCPF.Visible = true;
 
                     cnpj.Enabled = false;
                     cnpj.Visible = false;
-                    cnpjInput.Enabled = false;
-                    cnpjInput.Visible = false;
-
-
-                    mskCPF.Enabled = true;
                     mskCNPJ.Enabled = false;
-
-                    mskCPF.Visible = true;
                     mskCNPJ.Visible = false;
+
+
                     break;
             }
         }
 
         private void mskCPF_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
+        }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (peopleOption.SelectedIndex == -1 || statesOption.SelectedIndex == -1)
+            {
+                MessageBox.Show("É necessario escolher o tipo de pessoa e o seu estado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            if(cnpjInput.Text == "" || cpfInput.Text =="")
+            {
+                MessageBox.Show("É necessario preencher os CPF ou CNPJ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            if (NameInput.Text == "" || emailInput.Text == "" || mskPhone.Text == "" || logradouroInput.Text == "" || numberInput.Text == "" || ComplementoInput.Text == ""|| BairroInput.Text =="" || CityInput.Text == "" || cepInput.Text == "")
+            {
+                MessageBox.Show("É necessario preencher todos os campos", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            if(btnOn.Checked == false)
+            {
+                MessageBox.Show("O cliente precisa ser ativo para ser inserido", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PasswordInput = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -44,9 +44,7 @@
             this.ClientTitle = new System.Windows.Forms.Label();
             this.emailInput = new System.Windows.Forms.TextBox();
             this.Email = new System.Windows.Forms.Label();
-            this.phoneInput = new System.Windows.Forms.TextBox();
             this.phone = new System.Windows.Forms.Label();
-            this.cpfInput = new System.Windows.Forms.TextBox();
             this.CPF = new System.Windows.Forms.Label();
             this.numberInput = new System.Windows.Forms.TextBox();
             this.Number = new System.Windows.Forms.Label();
@@ -59,7 +57,6 @@
             this.Bairro = new System.Windows.Forms.Label();
             this.CityInput = new System.Windows.Forms.TextBox();
             this.City = new System.Windows.Forms.Label();
-            this.cepInput = new System.Windows.Forms.TextBox();
             this.CEP = new System.Windows.Forms.Label();
             this.States = new System.Windows.Forms.Label();
             this.statesOption = new System.Windows.Forms.ComboBox();
@@ -67,7 +64,6 @@
             this.dataView = new System.Windows.Forms.DataGridView();
             this.SearchInput = new System.Windows.Forms.TextBox();
             this.Search = new System.Windows.Forms.Label();
-            this.cnpjInput = new System.Windows.Forms.TextBox();
             this.cnpj = new System.Windows.Forms.Label();
             this.mskPhone = new System.Windows.Forms.MaskedTextBox();
             this.mskCPF = new System.Windows.Forms.MaskedTextBox();
@@ -168,6 +164,7 @@
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Salvar";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnNew
             // 
@@ -275,16 +272,6 @@
             this.Email.TabIndex = 9;
             this.Email.Text = "Email:";
             // 
-            // phoneInput
-            // 
-            this.phoneInput.Enabled = false;
-            this.phoneInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.phoneInput.Location = new System.Drawing.Point(424, 138);
-            this.phoneInput.MaxLength = 11;
-            this.phoneInput.Name = "phoneInput";
-            this.phoneInput.Size = new System.Drawing.Size(207, 25);
-            this.phoneInput.TabIndex = 12;
-            // 
             // phone
             // 
             this.phone.AutoSize = true;
@@ -295,16 +282,6 @@
             this.phone.Size = new System.Drawing.Size(72, 19);
             this.phone.TabIndex = 11;
             this.phone.Text = "Telefone:";
-            // 
-            // cpfInput
-            // 
-            this.cpfInput.Enabled = false;
-            this.cpfInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.cpfInput.Location = new System.Drawing.Point(424, 183);
-            this.cpfInput.MaxLength = 11;
-            this.cpfInput.Name = "cpfInput";
-            this.cpfInput.Size = new System.Drawing.Size(207, 25);
-            this.cpfInput.TabIndex = 14;
             // 
             // CPF
             // 
@@ -428,15 +405,6 @@
             this.City.TabIndex = 26;
             this.City.Text = "Cidade:";
             // 
-            // cepInput
-            // 
-            this.cepInput.Enabled = false;
-            this.cepInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.cepInput.Location = new System.Drawing.Point(424, 329);
-            this.cepInput.Name = "cepInput";
-            this.cepInput.Size = new System.Drawing.Size(207, 25);
-            this.cepInput.TabIndex = 25;
-            // 
             // CEP
             // 
             this.CEP.AutoSize = true;
@@ -491,14 +459,14 @@
             this.dataView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataView.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataView.Location = new System.Drawing.Point(117, 525);
             this.dataView.MultiSelect = false;
             this.dataView.Name = "dataView";
@@ -525,16 +493,6 @@
             this.Search.TabIndex = 32;
             this.Search.Text = "Pesquisar por cliente";
             // 
-            // cnpjInput
-            // 
-            this.cnpjInput.Enabled = false;
-            this.cnpjInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.cnpjInput.Location = new System.Drawing.Point(423, 183);
-            this.cnpjInput.MaxLength = 14;
-            this.cnpjInput.Name = "cnpjInput";
-            this.cnpjInput.Size = new System.Drawing.Size(207, 25);
-            this.cnpjInput.TabIndex = 35;
-            // 
             // cnpj
             // 
             this.cnpj.AutoSize = true;
@@ -550,7 +508,8 @@
             // 
             this.mskPhone.Enabled = false;
             this.mskPhone.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.mskPhone.Location = new System.Drawing.Point(424, 138);
+            this.mskPhone.ForeColor = System.Drawing.Color.Black;
+            this.mskPhone.Location = new System.Drawing.Point(422, 138);
             this.mskPhone.Mask = "(00) 00000-0000";
             this.mskPhone.Name = "mskPhone";
             this.mskPhone.Size = new System.Drawing.Size(207, 25);
@@ -559,7 +518,7 @@
             // mskCPF
             // 
             this.mskCPF.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.mskCPF.Location = new System.Drawing.Point(424, 183);
+            this.mskCPF.Location = new System.Drawing.Point(423, 183);
             this.mskCPF.Mask = "000.000.000-00";
             this.mskCPF.Name = "mskCPF";
             this.mskCPF.Size = new System.Drawing.Size(206, 25);
@@ -570,7 +529,7 @@
             // 
             this.mskCNPJ.Enabled = false;
             this.mskCNPJ.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.mskCNPJ.Location = new System.Drawing.Point(424, 183);
+            this.mskCNPJ.Location = new System.Drawing.Point(423, 183);
             this.mskCNPJ.Mask = "00.000.000/0000-00";
             this.mskCNPJ.Name = "mskCNPJ";
             this.mskCNPJ.Size = new System.Drawing.Size(206, 25);
@@ -580,7 +539,7 @@
             // 
             this.mskCEP.Enabled = false;
             this.mskCEP.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.mskCEP.Location = new System.Drawing.Point(424, 329);
+            this.mskCEP.Location = new System.Drawing.Point(423, 329);
             this.mskCEP.Mask = "00000-000";
             this.mskCEP.Name = "mskCEP";
             this.mskCEP.Size = new System.Drawing.Size(206, 25);
@@ -594,7 +553,6 @@
             this.Controls.Add(this.mskCNPJ);
             this.Controls.Add(this.mskCPF);
             this.Controls.Add(this.mskPhone);
-            this.Controls.Add(this.cnpjInput);
             this.Controls.Add(this.cnpj);
             this.Controls.Add(this.dataView);
             this.Controls.Add(this.SearchInput);
@@ -607,7 +565,6 @@
             this.Controls.Add(this.States);
             this.Controls.Add(this.CityInput);
             this.Controls.Add(this.City);
-            this.Controls.Add(this.cepInput);
             this.Controls.Add(this.CEP);
             this.Controls.Add(this.ComplementoInput);
             this.Controls.Add(this.Complemento);
@@ -618,9 +575,7 @@
             this.Controls.Add(this.logradouro);
             this.Controls.Add(this.numberInput);
             this.Controls.Add(this.Number);
-            this.Controls.Add(this.cpfInput);
             this.Controls.Add(this.CPF);
-            this.Controls.Add(this.phoneInput);
             this.Controls.Add(this.phone);
             this.Controls.Add(this.emailInput);
             this.Controls.Add(this.Email);
@@ -655,9 +610,7 @@
         private System.Windows.Forms.Label ClientTitle;
         private System.Windows.Forms.TextBox emailInput;
         private System.Windows.Forms.Label Email;
-        private System.Windows.Forms.TextBox phoneInput;
         private System.Windows.Forms.Label phone;
-        private System.Windows.Forms.TextBox cpfInput;
         private System.Windows.Forms.Label CPF;
         private System.Windows.Forms.TextBox numberInput;
         private System.Windows.Forms.Label Number;
@@ -670,7 +623,6 @@
         private System.Windows.Forms.Label Bairro;
         private System.Windows.Forms.TextBox CityInput;
         private System.Windows.Forms.Label City;
-        private System.Windows.Forms.TextBox cepInput;
         private System.Windows.Forms.Label CEP;
         private System.Windows.Forms.Label States;
         private System.Windows.Forms.ComboBox statesOption;
@@ -678,7 +630,6 @@
         private System.Windows.Forms.DataGridView dataView;
         private System.Windows.Forms.TextBox SearchInput;
         private System.Windows.Forms.Label Search;
-        private System.Windows.Forms.TextBox cnpjInput;
         private System.Windows.Forms.Label cnpj;
         private System.Windows.Forms.MaskedTextBox mskPhone;
         private System.Windows.Forms.MaskedTextBox mskCPF;
