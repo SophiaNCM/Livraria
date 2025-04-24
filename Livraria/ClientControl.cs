@@ -277,10 +277,11 @@ namespace Livraria
          
 
                     cm.CommandText = $"insert into tbl_phone(cd_Client,no_Phone)values('"+ cd +"','"+ phone+"');";
-                    cm.Parameters.Clear();
                     MessageBox.Show("Dados adicionados com sucesso", "Feito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cm.Connection = cn;
                     cm.ExecuteNonQuery();
+                    cm.Parameters.Clear();
+
                     limparCampos();
                     //MessageBox.Show($"{states} ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
