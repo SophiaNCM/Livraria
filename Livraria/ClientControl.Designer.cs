@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PasswordInput = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -459,14 +459,14 @@
             this.dataView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataView.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataView.Location = new System.Drawing.Point(117, 525);
             this.dataView.MultiSelect = false;
             this.dataView.Name = "dataView";
@@ -510,7 +510,7 @@
             this.mskPhone.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.mskPhone.ForeColor = System.Drawing.Color.Black;
             this.mskPhone.Location = new System.Drawing.Point(422, 138);
-            this.mskPhone.Mask = "(00) 00000-0000";
+            this.mskPhone.Mask = "(00)00000-0000";
             this.mskPhone.Name = "mskPhone";
             this.mskPhone.Size = new System.Drawing.Size(207, 25);
             this.mskPhone.TabIndex = 36;
@@ -519,7 +519,7 @@
             // 
             this.mskCPF.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.mskCPF.Location = new System.Drawing.Point(423, 183);
-            this.mskCPF.Mask = "000.000.000-00";
+            this.mskCPF.Mask = "000,000,000-00";
             this.mskCPF.Name = "mskCPF";
             this.mskCPF.Size = new System.Drawing.Size(206, 25);
             this.mskCPF.TabIndex = 37;
@@ -529,8 +529,8 @@
             // 
             this.mskCNPJ.Enabled = false;
             this.mskCNPJ.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.mskCNPJ.Location = new System.Drawing.Point(423, 183);
-            this.mskCNPJ.Mask = "00.000.000/0000-00";
+            this.mskCNPJ.Location = new System.Drawing.Point(422, 185);
+            this.mskCNPJ.Mask = "00,000,000/0000-00";
             this.mskCNPJ.Name = "mskCNPJ";
             this.mskCNPJ.Size = new System.Drawing.Size(206, 25);
             this.mskCNPJ.TabIndex = 38;

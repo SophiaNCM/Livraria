@@ -199,7 +199,11 @@ namespace Livraria
             }
             if(mskCNPJ.Text == "" || mskCPF.Text =="")
             {
-                MessageBox.Show("É necessario preencher os CPF ou CNPJ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("É necessario preencher o CPF ou CNPJ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            if (mskCPF.TextLength < 11 || mskCNPJ.TextLength < 14) {
+                MessageBox.Show("O CPF deve ter onze digitos e o CNPJ deve ter catorze digitos ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
             if (NameInput.Text == "" || emailInput.Text == "" || mskPhone.Text == "" || logradouroInput.Text == "" || numberInput.Text == "" || ComplementoInput.Text == ""|| BairroInput.Text =="" || CityInput.Text == "" || mskCEP.Text == "")
             {
@@ -208,6 +212,87 @@ namespace Livraria
             if(btnOn.Checked == false)
             {
                 MessageBox.Show("O cliente precisa ser ativo para ser inserido", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            if(mskCEP.TextLength < 8)
+            {
+                MessageBox.Show("O CEP deve ter oito digitos ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            if(mskPhone.TextLength < 11)
+            {
+                MessageBox.Show("O telefone deve ter onze digitos ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else
+            {
+                string name = nameText.Text;
+                string email = emailInput.Text;
+                string phone = mskPhone.Text;
+                phone = phone.Replace("-", "");
+                phone = phone.Replace("(", "");
+                phone = phone.Replace(")", "");
+
+                string cpf = mskCPF.Text;
+                cpf = cpf.Replace(".", "");
+                cpf = cpf.Replace("-", "");
+
+                string cnpj = mskCNPJ.Text;
+                cnpj = cnpj.Replace(".", "");
+                cnpj = cnpj.Replace("-", "");
+                cnpj = cnpj.Replace("/", "");
+
+
+                string logradouro = logradouroInput.Text;
+                string number = numberInput.Text;
+                string complemento = ComplementoInput.Text;
+                string bairro = BairroInput.Text;
+                string city = CityInput.Text;
+                string cep = mskCEP.Text;
+                cep = cep.Replace("-", "");
+                string states = statesOption.SelectedItem.ToString();
+                int status = 1;
+                try
+                {
+
+                    string stringsql = "insert into tbl_client(nm_Client,ds_Email,no_CPF, no_CNPJ, nm_Logradouro, no_Logradouro, ds_Complemento,nm_Bairro,nm_Cidade,sg_UF,no_CEP,ds_status) values(@name,@email,@cpf,@cnpj,@logradouro,@number,@complemento,@bairro,@city,@states,@cep,@status) set @cd= SCOPE_IDENTITY();";
+                    cm.CommandText = stringsql;
+                    cm.Connection = cn;
+                    cm.Parameters.Add("@name", SqlDbType.VarChar).Value = name;
+                    cm.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
+                    cm.Parameters.Add("@cpf", SqlDbType.Char).Value = cpf;
+                    cm.Parameters.Add("@cnpj",SqlDbType.Char).Value = cnpj;
+                    cm.Parameters.Add("@logradouro", SqlDbType.VarChar).Value = logradouro;
+                    cm.Parameters.Add("@number", SqlDbType.VarChar).Value= number;
+                    cm.Parameters.Add("@complemento", SqlDbType.VarChar).Value = complemento;
+                    cm.Parameters.Add("@bairro",SqlDbType.VarChar).Value = bairro;
+                    cm.Parameters.Add("@city",SqlDbType.VarChar).Value = city;
+                    cm.Parameters.Add("@cep",SqlDbType.Char).Value= cep;
+                    cm.Parameters.Add("@states", SqlDbType.Char).Value = states;
+                    cm.Parameters.Add("@status", SqlDbType.Bit).Value = status;
+                    cm.Parameters.AddWithValue("@cd", 0).Direction = ParameterDirection.Output;
+
+                    cn.Open();
+                    cm.ExecuteNonQuery();
+                    int cd = Convert.ToInt32(cm.Parameters["@cd"].Value);
+         
+
+                    cm.CommandText = $"insert into tbl_phone(cd_Client,no_Phone)values('"+ cd +"','"+ phone+"');";
+                    cm.Parameters.Clear();
+                    MessageBox.Show("Dados adicionados com sucesso", "Feito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cm.Connection = cn;
+                    cm.ExecuteNonQuery();
+                    limparCampos();
+                    //MessageBox.Show($"{states} ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                }
             }
         }
     }
