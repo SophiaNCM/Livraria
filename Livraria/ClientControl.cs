@@ -296,5 +296,33 @@ namespace Livraria
                 }
             }
         }
+
+        private void SearchInput_TextChanged(object sender, EventArgs e)
+        {
+            if (SearchInput.Text != "")
+            {
+                try
+                {
+                    cn.Open();
+                    cm.CommandText = "select * from viewClientEPhone";
+                    cm.Connection = cn;
+
+                    SqlDataAdapter da = new SqlDataAdapter();
+
+                    DataTable dt = new DataTable();
+                    da.SelectCommand = cm;
+                    da.Fill(dt);
+                    dataView.DataSource = dt;
+                    cn.Close();
+                }
+                catch (Exception error) {
+                    MessageBox.Show(error.Message);
+                }
+            }
+            else
+            {
+                dataView.DataSource = null;
+            }
+        }
     }
 }
