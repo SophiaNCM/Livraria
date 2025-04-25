@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -51,7 +50,6 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.EmployeeTitle = new System.Windows.Forms.Label();
             this.Search = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SearchInput = new System.Windows.Forms.TextBox();
             this.dataView = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -317,11 +315,6 @@
             this.Search.TabIndex = 16;
             this.Search.Text = "Pesquisar por Funcionario";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // SearchInput
             // 
             this.SearchInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
@@ -407,7 +400,6 @@
         private System.Windows.Forms.RadioButton btnOn;
         private System.Windows.Forms.RadioButton btnOff;
         private System.Windows.Forms.Label Search;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox SearchInput;
         private System.Windows.Forms.DataGridView dataView;
         private System.Windows.Forms.Label idLabel;

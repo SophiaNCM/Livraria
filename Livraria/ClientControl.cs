@@ -128,6 +128,8 @@ namespace Livraria
             statesOption.SelectedIndex = -1;
             btnOn.Checked = false;
             btnOff.Checked = false;
+            labelId.Visible = false;
+            idOutput.Visible = false;
 
         }
 
@@ -251,49 +253,59 @@ namespace Livraria
                 cep = cep.Replace("-", "");
                 string states = statesOption.SelectedItem.ToString();
                 int status = 1;
-                try
+                string typePerson = "";
+                if (peopleOption.SelectedIndex == 0)
                 {
-
-                    string stringsql = "insert into tbl_client(nm_Client,ds_Email,no_CPF, no_CNPJ, nm_Logradouro, no_Logradouro, ds_Complemento,nm_Bairro,nm_Cidade,sg_UF,no_CEP,ds_status) values(@name,@email,@cpf,@cnpj,@logradouro,@number,@complemento,@bairro,@city,@states,@cep,@status) set @cd= SCOPE_IDENTITY();";
-                    cm.CommandText = stringsql;
-                    cm.Connection = cn;
-                    cm.Parameters.Add("@name", SqlDbType.VarChar).Value = name;
-                    cm.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
-                    cm.Parameters.Add("@cpf", SqlDbType.Char).Value = cpf;
-                    cm.Parameters.Add("@cnpj",SqlDbType.Char).Value = cnpj;
-                    cm.Parameters.Add("@logradouro", SqlDbType.VarChar).Value = logradouro;
-                    cm.Parameters.Add("@number", SqlDbType.VarChar).Value= number;
-                    cm.Parameters.Add("@complemento", SqlDbType.VarChar).Value = complemento;
-                    cm.Parameters.Add("@bairro",SqlDbType.VarChar).Value = bairro;
-                    cm.Parameters.Add("@city",SqlDbType.VarChar).Value = city;
-                    cm.Parameters.Add("@cep",SqlDbType.Char).Value= cep;
-                    cm.Parameters.Add("@states", SqlDbType.Char).Value = states;
-                    cm.Parameters.Add("@status", SqlDbType.Bit).Value = status;
-                    cm.Parameters.AddWithValue("@cd", 0).Direction = ParameterDirection.Output;
-
-                    cn.Open();
-                    cm.ExecuteNonQuery();
-                    int cd = Convert.ToInt32(cm.Parameters["@cd"].Value);
-         
-
-                    cm.CommandText = $"insert into tbl_phone(cd_Client,no_Phone)values('"+ cd +"','"+ phone+"');";
-                    MessageBox.Show("Dados adicionados com sucesso", "Feito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cm.Connection = cn;
-                    cm.ExecuteNonQuery();
-                    cm.Parameters.Clear();
-
-                    limparCampos();
-                    //MessageBox.Show($"{states} ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                    typePerson = "J";
                 }
-                catch (Exception error)
+                else
                 {
-                    MessageBox.Show(error.Message);
+                    typePerson = "F";
                 }
-                finally
-                {
-                    cn.Close();
-                }
+                    try
+                    {
+
+                        string stringsql = "insert into tbl_client(nm_Client,ds_Email,no_CPF, no_CNPJ, nm_Logradouro, no_Logradouro, ds_Complemento,nm_Bairro,nm_Cidade,sg_UF,no_CEP,ds_status, type_person) values(@name,@email,@cpf,@cnpj,@logradouro,@number,@complemento,@bairro,@city,@states,@cep,@status, @typePerson) set @cd= SCOPE_IDENTITY();";
+                        cm.CommandText = stringsql;
+                        cm.Connection = cn;
+                        cm.Parameters.Add("@name", SqlDbType.VarChar).Value = name;
+                        cm.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
+                        cm.Parameters.Add("@cpf", SqlDbType.Char).Value = cpf;
+                        cm.Parameters.Add("@cnpj", SqlDbType.Char).Value = cnpj;
+                        cm.Parameters.Add("@logradouro", SqlDbType.VarChar).Value = logradouro;
+                        cm.Parameters.Add("@number", SqlDbType.VarChar).Value = number;
+                        cm.Parameters.Add("@complemento", SqlDbType.VarChar).Value = complemento;
+                        cm.Parameters.Add("@bairro", SqlDbType.VarChar).Value = bairro;
+                        cm.Parameters.Add("@city", SqlDbType.VarChar).Value = city;
+                        cm.Parameters.Add("@cep", SqlDbType.Char).Value = cep;
+                        cm.Parameters.Add("@states", SqlDbType.Char).Value = states;
+                        cm.Parameters.Add("@status", SqlDbType.Bit).Value = status;
+                        cm.Parameters.AddWithValue("@cd", 0).Direction = ParameterDirection.Output;
+                        cm.Parameters.Add("@typePerson", SqlDbType.Char).Value = typePerson;
+
+                        cn.Open();
+                        cm.ExecuteNonQuery();
+                        int cd = Convert.ToInt32(cm.Parameters["@cd"].Value);
+
+
+                        cm.CommandText = $"insert into tbl_phone(cd_Client,no_Phone)values('" + cd + "','" + phone + "');";
+                        MessageBox.Show("Dados adicionados com sucesso", "Feito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cm.Connection = cn;
+                        cm.ExecuteNonQuery();
+                        cm.Parameters.Clear();
+
+                        limparCampos();
+                        //MessageBox.Show($"{states} ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show(error.Message);
+                    }
+                    finally
+                    {
+                        cn.Close();
+                    }
             }
         }
 
@@ -304,7 +316,7 @@ namespace Livraria
                 try
                 {
                     cn.Open();
-                    cm.CommandText = "select * from viewClientEPhone";
+                    cm.CommandText = "select * from viewClientEPhone where nm_Client like ('"+SearchInput.Text+"%')";
                     cm.Connection = cn;
 
                     SqlDataAdapter da = new SqlDataAdapter();
@@ -323,6 +335,123 @@ namespace Livraria
             {
                 dataView.DataSource = null;
             }
+        }
+
+        private void ChangeData()
+        {
+            btnChange.Enabled = true;
+            btnChange.BackColor = Color.DarkRed;
+            btnChange.ForeColor = Color.White;
+
+            btnRemove.Enabled = true;
+            btnRemove.BackColor = Color.DarkRed;
+            btnRemove.ForeColor = Color.White;
+
+            btnCancel.Enabled = true;
+            btnCancel.BackColor = Color.DarkRed;
+            btnCancel.ForeColor = Color.White;
+
+            btnNew.Enabled = false;
+            btnNew.BackColor = Color.Maroon;
+
+            btnSave.Enabled = false;
+            btnSave.BackColor = Color.Maroon;
+
+            //inputs
+            nameText.Enabled = true;
+            emailInput.Enabled = true;
+            logradouroInput.Enabled = true;
+            numberInput.Enabled = true;
+            ComplementoInput.Enabled = true;
+            BairroInput.Enabled = true;
+            CityInput.Enabled = true;
+            statesOption.Enabled = true;
+            btnOff.Enabled = true;
+            btnOn.Enabled = true;
+            mskCEP.Enabled = true;
+            peopleOption.Enabled = true;
+            mskPhone.Enabled = true;
+           
+        }
+        private void getClient()
+        {
+            labelId.Visible = true;
+            idOutput.Visible = true;
+            idOutput.Text = dataView.SelectedRows[0].Cells[0].Value.ToString();
+            nameText.Text = dataView.SelectedRows[0].Cells[1].Value.ToString();
+            emailInput.Text = dataView.SelectedRows[0].Cells[2].Value.ToString();
+            mskCPF.Text = dataView.SelectedRows[0].Cells[3].Value.ToString();
+            mskCNPJ.Text = dataView.SelectedRows[0].Cells[4].Value.ToString();
+            logradouroInput.Text = dataView.SelectedRows[0].Cells[5].Value.ToString();
+            numberInput.Text = dataView.SelectedRows[0].Cells[6].Value.ToString();
+            ComplementoInput.Text = dataView.SelectedRows[0].Cells[7].Value.ToString();
+            BairroInput.Text = dataView.SelectedRows[0].Cells[8].Value.ToString();
+            CityInput.Text = dataView.SelectedRows[0].Cells[9].Value.ToString();
+            string states = dataView.SelectedRows[0].Cells[10].Value.ToString();
+            if (states == "SP")
+            {
+                statesOption.SelectedIndex = 0;
+            }
+            else if (states == "RJ")
+            {
+                statesOption.SelectedIndex = 1;
+            }
+            else if (states == "MG")
+            {
+                statesOption.SelectedIndex = 2;
+            }
+            else if (states == "RS")
+            {
+                statesOption.SelectedIndex = 3;
+            }
+            mskCEP.Text= dataView.SelectedRows[0].Cells[11].Value.ToString();
+           
+            string ativo = dataView.SelectedRows[0].Cells[12].Value.ToString();
+            if(ativo == "True")
+            {
+                btnOn.Checked = true;
+            }
+            else
+            {
+                btnOff.Checked = true;
+            }
+            string typePerson = dataView.SelectedRows[0].Cells[13].Value.ToString();
+            if(typePerson == "F")
+            {
+                peopleOption.SelectedIndex = 1;
+                mskCPF.Enabled = true;
+                mskCPF.Visible = true;
+                CPF.Enabled = true;
+                CPF.Visible = true;
+                mskCNPJ.Enabled = false;
+                mskCNPJ.Visible = false;
+                cnpj.Enabled = false;
+                cnpj.Visible = false;
+            }
+            else
+            {
+                peopleOption.SelectedIndex = 0;
+                mskCNPJ.Enabled = true;
+                mskCNPJ.Visible = true;
+                cnpj.Enabled = true;
+                cnpj.Visible = true;
+                mskCPF.Enabled = false;
+                mskCPF.Visible = false;
+                CPF.Enabled = false;
+                CPF.Visible = false;
+            }
+            mskPhone.Text = dataView.SelectedRows[0].Cells[14].Value.ToString();
+            ChangeData();
+        }
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        private void dataView_DoubleClick(object sender, EventArgs e)
+        {
+            getClient();
         }
     }
 }

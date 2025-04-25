@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.logo = new System.Windows.Forms.PictureBox();
             this.Dev = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
             this.Nametext = new System.Windows.Forms.Label();
@@ -38,7 +39,6 @@
             this.enter = new System.Windows.Forms.Button();
             this.errorLogin = new System.Windows.Forms.Label();
             this.errorPassword = new System.Windows.Forms.Label();
-            this.logo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +53,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(278, 480);
             this.panel1.TabIndex = 0;
+            // 
+            // logo
+            // 
+            this.logo.Image = global::Livraria.Properties.Resources.e_book;
+            this.logo.Location = new System.Drawing.Point(64, 39);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(137, 133);
+            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logo.TabIndex = 10;
+            this.logo.TabStop = false;
             // 
             // Dev
             // 
@@ -98,6 +108,7 @@
             this.NameInput.Name = "NameInput";
             this.NameInput.Size = new System.Drawing.Size(214, 25);
             this.NameInput.TabIndex = 3;
+            this.NameInput.TextChanged += new System.EventHandler(this.NameInput_TextChanged);
             // 
             // PasswordIput
             // 
@@ -154,16 +165,6 @@
             this.errorPassword.Name = "errorPassword";
             this.errorPassword.Size = new System.Drawing.Size(0, 19);
             this.errorPassword.TabIndex = 8;
-            // 
-            // logo
-            // 
-            this.logo.Image = global::Livraria.Properties.Resources.e_book;
-            this.logo.Location = new System.Drawing.Point(64, 39);
-            this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(137, 133);
-            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logo.TabIndex = 10;
-            this.logo.TabStop = false;
             // 
             // Login
             // 

@@ -84,5 +84,10 @@ namespace Livraria
                 }
             }
         }
+
+        private void NameInput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

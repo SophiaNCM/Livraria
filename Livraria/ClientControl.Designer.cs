@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PasswordInput = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -71,6 +72,8 @@
             this.mskCPF = new System.Windows.Forms.MaskedTextBox();
             this.mskCNPJ = new System.Windows.Forms.MaskedTextBox();
             this.mskCEP = new System.Windows.Forms.MaskedTextBox();
+            this.labelId = new System.Windows.Forms.Label();
+            this.idOutput = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.SuspendLayout();
@@ -149,6 +152,7 @@
             this.btnChange.TabIndex = 3;
             this.btnChange.Text = "Alterar";
             this.btnChange.UseVisualStyleBackColor = false;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // btnSave
             // 
@@ -227,7 +231,7 @@
             // 
             this.nameText.Enabled = false;
             this.nameText.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.nameText.Location = new System.Drawing.Point(136, 86);
+            this.nameText.Location = new System.Drawing.Point(136, 97);
             this.nameText.Name = "nameText";
             this.nameText.Size = new System.Drawing.Size(495, 25);
             this.nameText.TabIndex = 8;
@@ -237,7 +241,7 @@
             this.NameInput.AutoSize = true;
             this.NameInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.NameInput.ForeColor = System.Drawing.Color.DarkRed;
-            this.NameInput.Location = new System.Drawing.Point(70, 86);
+            this.NameInput.Location = new System.Drawing.Point(70, 97);
             this.NameInput.Name = "NameInput";
             this.NameInput.Size = new System.Drawing.Size(54, 19);
             this.NameInput.TabIndex = 7;
@@ -248,7 +252,7 @@
             this.ClientTitle.AutoSize = true;
             this.ClientTitle.Font = new System.Drawing.Font("Malgun Gothic", 18F, System.Drawing.FontStyle.Bold);
             this.ClientTitle.ForeColor = System.Drawing.Color.DarkRed;
-            this.ClientTitle.Location = new System.Drawing.Point(285, 27);
+            this.ClientTitle.Location = new System.Drawing.Point(291, 15);
             this.ClientTitle.Name = "ClientTitle";
             this.ClientTitle.Size = new System.Drawing.Size(93, 32);
             this.ClientTitle.TabIndex = 0;
@@ -351,7 +355,7 @@
             // 
             this.ComplementoInput.Enabled = false;
             this.ComplementoInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.ComplementoInput.Location = new System.Drawing.Point(136, 277);
+            this.ComplementoInput.Location = new System.Drawing.Point(136, 281);
             this.ComplementoInput.Name = "ComplementoInput";
             this.ComplementoInput.Size = new System.Drawing.Size(196, 25);
             this.ComplementoInput.TabIndex = 23;
@@ -361,7 +365,7 @@
             this.Complemento.AutoSize = true;
             this.Complemento.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.Complemento.ForeColor = System.Drawing.Color.DarkRed;
-            this.Complemento.Location = new System.Drawing.Point(21, 277);
+            this.Complemento.Location = new System.Drawing.Point(21, 281);
             this.Complemento.Name = "Complemento";
             this.Complemento.Size = new System.Drawing.Size(109, 19);
             this.Complemento.TabIndex = 22;
@@ -371,7 +375,7 @@
             // 
             this.BairroInput.Enabled = false;
             this.BairroInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.BairroInput.Location = new System.Drawing.Point(424, 277);
+            this.BairroInput.Location = new System.Drawing.Point(424, 281);
             this.BairroInput.Name = "BairroInput";
             this.BairroInput.Size = new System.Drawing.Size(207, 25);
             this.BairroInput.TabIndex = 21;
@@ -381,7 +385,7 @@
             this.Bairro.AutoSize = true;
             this.Bairro.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.Bairro.ForeColor = System.Drawing.Color.DarkRed;
-            this.Bairro.Location = new System.Drawing.Point(363, 277);
+            this.Bairro.Location = new System.Drawing.Point(363, 281);
             this.Bairro.Name = "Bairro";
             this.Bairro.Size = new System.Drawing.Size(55, 19);
             this.Bairro.TabIndex = 20;
@@ -448,8 +452,8 @@
             this.peopleOption.Enabled = false;
             this.peopleOption.FormattingEnabled = true;
             this.peopleOption.Items.AddRange(new object[] {
-            "juridica",
-            "fisica"});
+            "Juridica",
+            "Fisica"});
             this.peopleOption.Location = new System.Drawing.Point(136, 187);
             this.peopleOption.Name = "peopleOption";
             this.peopleOption.Size = new System.Drawing.Size(196, 21);
@@ -460,7 +464,7 @@
             // 
             this.dataView.BackgroundColor = System.Drawing.Color.MistyRose;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.MistyRose;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -469,7 +473,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.MistyRose;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -478,10 +482,10 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataView.GridColor = System.Drawing.Color.DarkRed;
-            this.dataView.Location = new System.Drawing.Point(117, 525);
+            this.dataView.Location = new System.Drawing.Point(55, 525);
             this.dataView.MultiSelect = false;
             this.dataView.Name = "dataView";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.MistyRose;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -489,9 +493,12 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataView.Size = new System.Drawing.Size(429, 196);
+            this.dataView.Size = new System.Drawing.Size(573, 196);
             this.dataView.TabIndex = 33;
+            this.dataView.DoubleClick += new System.EventHandler(this.dataView_DoubleClick);
             // 
             // SearchInput
             // 
@@ -565,11 +572,34 @@
             this.mskCEP.Size = new System.Drawing.Size(206, 25);
             this.mskCEP.TabIndex = 39;
             // 
+            // labelId
+            // 
+            this.labelId.AutoSize = true;
+            this.labelId.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.labelId.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelId.Location = new System.Drawing.Point(68, 63);
+            this.labelId.Name = "labelId";
+            this.labelId.Size = new System.Drawing.Size(62, 19);
+            this.labelId.TabIndex = 40;
+            this.labelId.Text = "Codigo:";
+            // 
+            // idOutput
+            // 
+            this.idOutput.AutoSize = true;
+            this.idOutput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.idOutput.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.idOutput.Location = new System.Drawing.Point(136, 63);
+            this.idOutput.Name = "idOutput";
+            this.idOutput.Size = new System.Drawing.Size(0, 19);
+            this.idOutput.TabIndex = 41;
+            // 
             // ClientControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
+            this.Controls.Add(this.idOutput);
+            this.Controls.Add(this.labelId);
             this.Controls.Add(this.mskCEP);
             this.Controls.Add(this.mskCNPJ);
             this.Controls.Add(this.mskCPF);
@@ -656,5 +686,7 @@
         private System.Windows.Forms.MaskedTextBox mskCPF;
         private System.Windows.Forms.MaskedTextBox mskCNPJ;
         private System.Windows.Forms.MaskedTextBox mskCEP;
+        private System.Windows.Forms.Label labelId;
+        private System.Windows.Forms.Label idOutput;
     }
 }
