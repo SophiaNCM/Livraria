@@ -88,7 +88,7 @@ namespace Livraria
             btnNew.Enabled = false;
             btnNew.BackColor = Color.Maroon;
 
-            Search.Text = "";
+            SearchInput.Text = "";
             dataView.DataSource = null;
 
             //inputs
@@ -445,13 +445,186 @@ namespace Livraria
         }
         private void btnChange_Click(object sender, EventArgs e)
         {
+            if (peopleOption.SelectedIndex == -1 || statesOption.SelectedIndex == -1)
+            {
+                MessageBox.Show("É necessario escolher o tipo de pessoa e o seu estado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            if (mskCNPJ.Text == "" || mskCPF.Text == "")
+            {
+                MessageBox.Show("É necessario preencher o CPF ou CNPJ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            if (mskCPF.TextLength < 11 || mskCNPJ.TextLength < 14)
+            {
+                MessageBox.Show("O CPF deve ter onze digitos e o CNPJ deve ter catorze digitos ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            
+            }
+            if (NameInput.Text == "" || emailInput.Text == "" || mskPhone.Text == "" || logradouroInput.Text == "" || numberInput.Text == "" || ComplementoInput.Text == "" || BairroInput.Text == "" || CityInput.Text == "" || mskCEP.Text == "")
+            {
+                MessageBox.Show("É necessario preencher todos os campos", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            if (mskCEP.TextLength < 8)
+            {
+                MessageBox.Show("O CEP deve ter oito digitos ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            if (mskPhone.TextLength < 11)
+            {
+                MessageBox.Show("O telefone deve ter onze digitos ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else
+            {
+                try
+                {
+                    int id = Convert.ToInt32(idOutput.Text);
+                    string name = nameText.Text;
+                    string email = emailInput.Text;
+                    string phone = mskPhone.Text;
+                    phone = phone.Replace("-", "");
+                    phone = phone.Replace("(", "");
+                    phone = phone.Replace(")", "");
+
+                    string cpf = mskCPF.Text;
+                    cpf = cpf.Replace(".", "");
+                    cpf = cpf.Replace("-", "");
+
+                    string cnpj = mskCNPJ.Text;
+                    cnpj = cnpj.Replace(".", "");
+                    cnpj = cnpj.Replace("-", "");
+                    cnpj = cnpj.Replace("/", "");
+
+
+                    string logradouro = logradouroInput.Text;
+                    string number = numberInput.Text;
+                    string complemento = ComplementoInput.Text;
+                    string bairro = BairroInput.Text;
+                    string city = CityInput.Text;
+                    string cep = mskCEP.Text;
+                    cep = cep.Replace("-", "");
+                    string states = statesOption.SelectedItem.ToString();
+                    int status = 1;
+                    if (btnOn.Checked) {
+                        status = 1;
+                    }
+                    else {
+                        status = 0;
+                    }
+                    string typePerson = "";
+                    if (peopleOption.SelectedIndex == 0)
+                    {
+                        typePerson = "J";
+                    }
+                    else
+                    {
+                        typePerson = "F";
+                    }
+                    string sqlUpdate = "update tbl_Client set nm_Client = @name,ds_Email =@email,no_CPF = @cpf, no_CNPJ = @cnpj, nm_Logradouro =@logradouro, no_Logradouro = @number, ds_Complemento= @complemento,nm_Bairro = @bairro,nm_Cidade = @city,sg_UF = @states,no_CEP=@cep,ds_status = @status, type_person = @typePerson where cd_Client = @id; update tbl_phone  set no_Phone = @phone where cd_Client = @id" ;
+                    cm.CommandText = sqlUpdate;
+                    cm.Connection = cn;
+                    cm.Parameters.Add("@phone", SqlDbType.Char).Value = phone;
+                    cm.Parameters.Add("@id",SqlDbType.Int).Value= id;
+                    cm.Parameters.Add("@name", SqlDbType.VarChar).Value = name;
+                    cm.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
+                    cm.Parameters.Add("@cpf", SqlDbType.Char).Value = cpf;
+                    cm.Parameters.Add("@cnpj", SqlDbType.Char).Value = cnpj;
+                    cm.Parameters.Add("@logradouro", SqlDbType.VarChar).Value = logradouro;
+                    cm.Parameters.Add("@number", SqlDbType.VarChar).Value = number;
+                    cm.Parameters.Add("@complemento", SqlDbType.VarChar).Value = complemento;
+                    cm.Parameters.Add("@bairro", SqlDbType.VarChar).Value = bairro;
+                    cm.Parameters.Add("@city", SqlDbType.VarChar).Value = city;
+                    cm.Parameters.Add("@cep", SqlDbType.Char).Value = cep;
+                    cm.Parameters.Add("@states", SqlDbType.Char).Value = states;
+                    cm.Parameters.Add("@status", SqlDbType.Bit).Value = status;
+                    cm.Parameters.AddWithValue("@cd", 0).Direction = ParameterDirection.Output;
+                    cm.Parameters.Add("@typePerson", SqlDbType.Char).Value = typePerson;
+                    cn.Open();
+                    cm.ExecuteNonQuery();
+                    
+                    cm.Connection = cn;
+                    cm.ExecuteNonQuery();
+                    cm.Parameters.Clear();
+                    MessageBox.Show("Dados alterados", "Feito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    limparCampos();
+
+
+                }
+                catch (Exception error) 
+                {
+                    MessageBox.Show(error.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                }
+
+            }
+           
         }
 
         private void dataView_DoubleClick(object sender, EventArgs e)
         {
             getClient();
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (peopleOption.SelectedIndex == -1 || statesOption.SelectedIndex == -1)
+            {
+                MessageBox.Show("É necessario escolher o tipo de pessoa e o seu estado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            if (mskCNPJ.Text == "" || mskCPF.Text == "")
+            {
+                MessageBox.Show("É necessario preencher o CPF ou CNPJ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            if (mskCPF.TextLength < 11 || mskCNPJ.TextLength < 14)
+            {
+                MessageBox.Show("O CPF deve ter onze digitos e o CNPJ deve ter catorze digitos ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            if (NameInput.Text == "" || emailInput.Text == "" || mskPhone.Text == "" || logradouroInput.Text == "" || numberInput.Text == "" || ComplementoInput.Text == "" || BairroInput.Text == "" || CityInput.Text == "" || mskCEP.Text == "")
+            {
+                MessageBox.Show("É necessario preencher todos os campos", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            if (mskCEP.TextLength < 8)
+            {
+                MessageBox.Show("O CEP deve ter oito digitos ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            if (mskPhone.TextLength < 11)
+            {
+                MessageBox.Show("O telefone deve ter onze digitos ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else
+            {
+                try
+                {
+                    string phone = mskPhone.Text;
+                    int id = Convert.ToInt32(idOutput.Text);
+                    if (btnOff.Checked) 
+                    {
+                        string stringsql = " delete from tbl_phone where cd_Client = @id;delete from tbl_client where cd_Client = @id";
+                        cm.CommandText = stringsql;
+                        cm.Connection = cn;
+                        cm.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                        cm.Parameters.Add("@phone", SqlDbType.Char).Value = phone;
+                        cn.Open();
+                        cm.ExecuteNonQuery();
+                        MessageBox.Show("Dados foram removidos", "Feito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        limparCampos();
+                        cm.Parameters.Clear();
+                    }
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                }
+
+            }
         }
     }
 }
