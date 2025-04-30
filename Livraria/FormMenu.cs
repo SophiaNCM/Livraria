@@ -21,11 +21,23 @@ namespace Livraria
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
-            
-            if (employeeControl1.Visible == false){ employeeControl1.Visible = true;}else{ employeeControl1.Visible = false;}
-            if(clientControl1.Visible == true)
+
+            if (clientControl1.Visible == true || phoneControl1.Visible == true)
             {
+                phoneControl1.Visible = false;
+                phoneControl1.Enabled = false;
                 clientControl1.Visible = false;
+                clientControl1.Enabled = false;
+            }
+            if (employeeControl1.Visible == false)
+            {
+                employeeControl1.Visible = true;
+                employeeControl1.Enabled = true;
+            }
+            else
+            {
+                employeeControl1.Visible = false;
+                employeeControl1.Enabled = false;
             }
         }
 
@@ -44,11 +56,43 @@ namespace Livraria
 
         private void btnClient_Click(object sender, EventArgs e)
         {
-            if(employeeControl1.Visible == true)
+            if (employeeControl1.Visible == true || phoneControl1.Visible == true)
             {
+                phoneControl1.Visible = false;
+                phoneControl1.Enabled = false;
                 employeeControl1.Visible = false;
+                employeeControl1.Enabled = false;
             }
-            if (clientControl1.Visible == false) { clientControl1.Visible = true; } else { clientControl1.Visible = false; }
+            if (clientControl1.Visible == false) 
+            { 
+                clientControl1.Visible = true; 
+                clientControl1.Enabled = true;
+            } else 
+            { 
+                clientControl1.Visible = false;
+                clientControl1.Enabled = false;
+            }
+        }
+
+        private void btnPhone_Click(object sender, EventArgs e)
+        {
+            if (employeeControl1.Visible == true || clientControl1.Visible == true)
+            {
+                clientControl1.Visible = false;
+                clientControl1.Enabled = false;
+                employeeControl1.Visible = false;
+                employeeControl1.Enabled = false;
+            }
+            if (phoneControl1.Visible == false)
+            {
+                phoneControl1.Visible = true;
+                phoneControl1.Enabled = true;
+            }
+            else
+            {
+                phoneControl1.Visible = false;
+                phoneControl1.Enabled = false;
+            }
         }
     }
 }

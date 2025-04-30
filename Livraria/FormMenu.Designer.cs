@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.phoneControl1 = new Livraria.PhoneControl();
             this.User = new System.Windows.Forms.Label();
             this.userOutput = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
@@ -69,6 +70,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(320, 739);
             this.panel1.TabIndex = 0;
+            // 
+            // phoneControl1
+            // 
+            this.phoneControl1.BackColor = System.Drawing.Color.MistyRose;
+            this.phoneControl1.Location = new System.Drawing.Point(320, 0);
+            this.phoneControl1.Name = "phoneControl1";
+            this.phoneControl1.Size = new System.Drawing.Size(960, 739);
+            this.phoneControl1.TabIndex = 3;
             // 
             // User
             // 
@@ -211,6 +220,7 @@
             this.btnPhone.TabIndex = 3;
             this.btnPhone.Text = "Telefone";
             this.btnPhone.UseVisualStyleBackColor = false;
+            this.btnPhone.Click += new System.EventHandler(this.btnPhone_Click);
             // 
             // btnClient
             // 
@@ -256,11 +266,14 @@
             // 
             // clientControl1
             // 
+            this.clientControl1.BackColor = System.Drawing.Color.MistyRose;
             this.clientControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.clientControl1.Enabled = false;
             this.clientControl1.Location = new System.Drawing.Point(320, 0);
             this.clientControl1.Name = "clientControl1";
             this.clientControl1.Size = new System.Drawing.Size(960, 739);
             this.clientControl1.TabIndex = 2;
+            this.clientControl1.Visible = false;
             // 
             // employeeControl1
             // 
@@ -276,6 +289,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(1280, 739);
+            this.Controls.Add(this.phoneControl1);
             this.Controls.Add(this.clientControl1);
             this.Controls.Add(this.employeeControl1);
             this.Controls.Add(this.panel1);
@@ -308,5 +322,6 @@
         private System.Windows.Forms.Label User;
         private EmployeeControl employeeControl1;
         private ClientControl clientControl1;
+        private PhoneControl phoneControl1;
     }
 }
