@@ -177,8 +177,11 @@ namespace Livraria
                 try
                 {
                     string phone = mskPhone.Text;
+                    phone = phone.Replace("-", "");
+                    phone = phone.Replace("(", "");
+                    phone = phone.Replace(")", "");
                     int id = Convert.ToInt32(IdOutput.Text);
-                    string removesql = "DELETE FROM tbl_phone where no_Phone =@phone AND cd_Client =@id";
+                    string removesql = "DELETE FROM tbl_phone where no_Phone =@phone ";
                     cm.CommandText = removesql;
                     cm.Connection = cn;
                     cm.Parameters.Add("@id", SqlDbType.Int).Value = id;
