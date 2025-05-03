@@ -204,5 +204,40 @@ namespace Livraria
             }
 
         }
+
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+            if (mskPhone.Text != "" && IdOutput.Text != "")
+            {
+                try 
+                {
+                    string phone = mskPhone.Text;
+                    phone = phone.Replace("-", "");
+                    phone = phone.Replace("(", "");
+                    phone = phone.Replace(")", "");
+                    int id = Convert.ToInt32(IdOutput.Text);
+                    string alterSql = "update tbl_phone set no_phone = @phone where cd_Client = @id";
+                    cm.CommandText = alterSql;
+                    cm.Connection = cn;
+                    cm.Parameters.Add("@phone", SqlDbType.Char).Value = phone;
+                    cm.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                    cn.Open();
+                    cm.ExecuteNonQuery();
+                    cm.Parameters.Clear();
+                    MessageBox.Show("Dados alterados", "Feito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    limparCampos();
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                }
+
+            }
+        
+        }
     }
 }

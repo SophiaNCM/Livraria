@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.phoneControl1 = new Livraria.PhoneControl();
             this.User = new System.Windows.Forms.Label();
             this.userOutput = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
@@ -43,6 +42,7 @@
             this.btnClient = new System.Windows.Forms.Button();
             this.btnEmployee = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
+            this.phoneControl1 = new Livraria.PhoneControl();
             this.clientControl1 = new Livraria.ClientControl();
             this.employeeControl1 = new Livraria.EmployeeControl();
             this.panel1.SuspendLayout();
@@ -70,14 +70,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(320, 739);
             this.panel1.TabIndex = 0;
-            // 
-            // phoneControl1
-            // 
-            this.phoneControl1.BackColor = System.Drawing.Color.MistyRose;
-            this.phoneControl1.Location = new System.Drawing.Point(320, 0);
-            this.phoneControl1.Name = "phoneControl1";
-            this.phoneControl1.Size = new System.Drawing.Size(960, 739);
-            this.phoneControl1.TabIndex = 3;
             // 
             // User
             // 
@@ -264,6 +256,16 @@
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
             // 
+            // phoneControl1
+            // 
+            this.phoneControl1.BackColor = System.Drawing.Color.MistyRose;
+            this.phoneControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.phoneControl1.Location = new System.Drawing.Point(320, 0);
+            this.phoneControl1.Name = "phoneControl1";
+            this.phoneControl1.Size = new System.Drawing.Size(960, 739);
+            this.phoneControl1.TabIndex = 3;
+            this.phoneControl1.Load += new System.EventHandler(this.phoneControl1_Load);
+            // 
             // clientControl1
             // 
             this.clientControl1.BackColor = System.Drawing.Color.MistyRose;
@@ -278,6 +280,7 @@
             // employeeControl1
             // 
             this.employeeControl1.BackColor = System.Drawing.Color.MistyRose;
+            this.employeeControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.employeeControl1.Location = new System.Drawing.Point(320, 0);
             this.employeeControl1.Name = "employeeControl1";
             this.employeeControl1.Size = new System.Drawing.Size(960, 739);

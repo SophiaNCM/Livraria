@@ -94,5 +94,10 @@ namespace Livraria
                 phoneControl1.Enabled = false;
             }
         }
+
+        private void phoneControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
