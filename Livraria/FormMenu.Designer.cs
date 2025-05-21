@@ -45,6 +45,7 @@
             this.phoneControl1 = new Livraria.PhoneControl();
             this.clientControl1 = new Livraria.ClientControl();
             this.employeeControl1 = new Livraria.EmployeeControl();
+            this.bookControl1 = new Livraria.BookControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
@@ -197,6 +198,7 @@
             this.btnBook.TabIndex = 4;
             this.btnBook.Text = "Livros";
             this.btnBook.UseVisualStyleBackColor = false;
+            this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
             // 
             // btnPhone
             // 
@@ -286,12 +288,20 @@
             this.employeeControl1.Size = new System.Drawing.Size(960, 739);
             this.employeeControl1.TabIndex = 1;
             // 
+            // bookControl1
+            // 
+            this.bookControl1.Location = new System.Drawing.Point(320, 0);
+            this.bookControl1.Name = "bookControl1";
+            this.bookControl1.Size = new System.Drawing.Size(960, 739);
+            this.bookControl1.TabIndex = 4;
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(1280, 739);
+            this.Controls.Add(this.bookControl1);
             this.Controls.Add(this.phoneControl1);
             this.Controls.Add(this.clientControl1);
             this.Controls.Add(this.employeeControl1);
@@ -326,5 +336,6 @@
         private EmployeeControl employeeControl1;
         private ClientControl clientControl1;
         private PhoneControl phoneControl1;
+        private BookControl bookControl1;
     }
 }

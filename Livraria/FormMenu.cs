@@ -56,12 +56,14 @@ namespace Livraria
 
         private void btnClient_Click(object sender, EventArgs e)
         {
-            if (employeeControl1.Visible == true || phoneControl1.Visible == true)
+            if (employeeControl1.Visible == true || phoneControl1.Visible == true || bookControl1.Visible == true)
             {
                 phoneControl1.Visible = false;
                 phoneControl1.Enabled = false;
                 employeeControl1.Visible = false;
                 employeeControl1.Enabled = false;
+                bookControl1.Enabled = false;
+                bookControl1.Visible = false;
             }
             if (clientControl1.Visible == false) 
             { 
@@ -76,12 +78,14 @@ namespace Livraria
 
         private void btnPhone_Click(object sender, EventArgs e)
         {
-            if (employeeControl1.Visible == true || clientControl1.Visible == true)
+            if (employeeControl1.Visible == true || clientControl1.Visible == true || bookControl1.Visible == true)
             {
                 clientControl1.Visible = false;
                 clientControl1.Enabled = false;
                 employeeControl1.Visible = false;
                 employeeControl1.Enabled = false;
+                bookControl1.Enabled = false;
+                bookControl1.Visible = false;
             }
             if (phoneControl1.Visible == false)
             {
@@ -98,6 +102,29 @@ namespace Livraria
         private void phoneControl1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBook_Click(object sender, EventArgs e)
+        {
+            if (employeeControl1.Visible == true || clientControl1.Visible == true || phoneControl1.Visible == true)
+            {
+                clientControl1.Visible = false;
+                clientControl1.Enabled = false;
+                employeeControl1.Visible = false;
+                employeeControl1.Enabled = false;
+                phoneControl1.Visible=false;
+                phoneControl1.Enabled=false;
+            }
+            if (bookControl1.Visible == false)
+            {
+                bookControl1.Visible = true;
+                bookControl1.Enabled = true;
+            }
+            else
+            {
+                bookControl1.Visible = false;
+                bookControl1.Enabled = false;
+            }
         }
     }
 }
