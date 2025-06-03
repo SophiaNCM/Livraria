@@ -337,13 +337,17 @@
             // 
             // dateInput
             // 
+            this.dateInput.Checked = false;
+            this.dateInput.CustomFormat = "yyyy-MM-dd";
             this.dateInput.Enabled = false;
             this.dateInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.dateInput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateInput.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateInput.Location = new System.Drawing.Point(451, 203);
+            this.dateInput.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.dateInput.Name = "dateInput";
             this.dateInput.Size = new System.Drawing.Size(183, 25);
             this.dateInput.TabIndex = 59;
+            this.dateInput.Value = new System.DateTime(2025, 6, 2, 0, 0, 0, 0);
             // 
             // writerInput
             // 

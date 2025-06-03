@@ -75,10 +75,71 @@ namespace Livraria
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (titleInput.Text == "" ||pageInput.Text =="" || priceInput.Text == "" || StockInput.Text ==""|| dateInput.Text ==""|| CategoryInput.Text ==""|| publisherInput.Text ==""|| writerInput.Text =="") 
+           if (titleInput.Text == "" || pageInput.Text == "" || priceInput.Text == "" || StockInput.Text == "" ||  CategoryInput.Text == "" || publisherInput.Text == "" || writerInput.Text == "")
             {
                 MessageBox.Show("Nenhum campo pode estar vazio", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else
+            {
+                string title = titleText.Text;
+                string price = priceInput.Text;
+                string noPage = pageInput.Text;
+                string quantStock = StockInput.Text;
+                string dataRelease = dateInput.Text;
+                string category = CategoryInput.Text;
+                string publisher = publisherInput.Text;
+                string writer = writerInput.Text;
+                try
+                {
+                    string sqlCommand = "DECLARE @IdCategory INT; " +
+                        "DECLARE @IdPublisher INT;" +
+                        "DECLARE @IdWriter INT;" +
+                        "DECLARE @IdBook INT;" +
+                        "SELECT @IdCategory = cd_Category FROM tbl_Category WHERE nm_Category = @category; " +
+                        "SELECT @IdPublisher = cd_publisher FROM tbl_Publisher Where nm_Publisher =@publisher;" +
+                        "SELECT @IdWriter = cd_Writer FROM tbl_writer Where nm_Writer =@writer;" +
+                        "IF @IdCategory IS NULL OR @IdPublisher IS NULL OR @IdWriter IS NULL " +
+                        "BEGIN " +
+                        "INSERT INTO tbl_Category(nm_Category) VALUES (@category) SET @IdCategory = SCOPE_IDENTITY(); " +
+                        "INSERT INTO tbl_Publisher(nm_Publisher) VALUES (@publisher) SET @IdPublisher = SCOPE_IDENTITY(); " +
+                        "INSERT INTO tbl_writer(nm_Writer) Values(@writer) SET @IdWriter = SCOPE_IDENTITY();" +
+                        "END " +
+                        "ELSE " +
+                        "BEGIN   " +
+                        "INSERT INTO tbl_Book(nm_Book,no_Page, Price_Book,qt_Stock,dt_Release,cd_Category,cd_Publisher) VALUES(@title,@noPage,@price,@quantStock,@dataRelease,@IdCategory,@IdPublisher) SET @IdBook = SCOPE_IDENTITY(); INSERT INTO tbl_writerBook(cd_Writer,cd_Book) VALUES(@IdWriter,@IdBook);" +
+                        "END;";
+
+                    cm.CommandText = sqlCommand;
+                    cm.Connection = cn;
+                    cm.Parameters.Add("@category", SqlDbType.VarChar).Value = category;
+                    cm.Parameters.Add("@publisher", SqlDbType.VarChar).Value = publisher;
+                    cm.Parameters.Add("@title", SqlDbType.VarChar).Value = title;
+                    cm.Parameters.Add("@noPage",SqlDbType.VarChar).Value = noPage;
+                    cm.Parameters.Add("@price", SqlDbType.Decimal).Value = price;
+                    cm.Parameters.Add("@quantStock", SqlDbType.Int).Value = quantStock;
+                    cm.Parameters.Add("@dataRelease", SqlDbType.Date).Value = dataRelease;
+                    cm.Parameters.Add("@writer",SqlDbType.VarChar).Value = writer;
+                    
+                    cn.Open();
+
+                    cm.ExecuteNonQuery();
+                    cm.Connection = cn;
+                    cm.Parameters.Clear();
+                    MessageBox.Show("Dados adicionados com sucesso", "Feito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    limparCampos();
+
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+  
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

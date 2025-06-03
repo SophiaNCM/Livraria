@@ -237,6 +237,7 @@
             this.nameText.Name = "nameText";
             this.nameText.Size = new System.Drawing.Size(495, 25);
             this.nameText.TabIndex = 8;
+            this.nameText.TextChanged += new System.EventHandler(this.nameText_TextChanged);
             // 
             // NameInput
             // 
