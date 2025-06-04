@@ -92,19 +92,26 @@ namespace Livraria
                 try
                 {
                     string sqlCommand = "DECLARE @IdCategory INT; " +
-                        "DECLARE @IdPublisher INT;" +
-                        "DECLARE @IdWriter INT;" +
-                        "DECLARE @IdBook INT;" +
+                        "DECLARE @IdPublisher INT; " +
+                        "DECLARE @IdWriter INT; " +
+                        "DECLARE @IdBook INT; " +
                         "SELECT @IdCategory = cd_Category FROM tbl_Category WHERE nm_Category = @category; " +
-                        "SELECT @IdPublisher = cd_publisher FROM tbl_Publisher Where nm_Publisher =@publisher;" +
-                        "SELECT @IdWriter = cd_Writer FROM tbl_writer Where nm_Writer =@writer;" +
-                        "IF @IdCategory IS NULL OR @IdPublisher IS NULL OR @IdWriter IS NULL " +
+                        "SELECT @IdPublisher = cd_publisher FROM tbl_Publisher Where nm_Publisher =@publisher; " +
+                        "SELECT @IdWriter = cd_Writer FROM tbl_writer Where nm_Writer =@writer; " +
+                        "SELECT @IdBook = cd_Book FROM tbl_Book WHERE nm_Book =@title " +
+                        "IF @IdCategory IS NULL " +
                         "BEGIN " +
                         "INSERT INTO tbl_Category(nm_Category) VALUES (@category) SET @IdCategory = SCOPE_IDENTITY(); " +
-                        "INSERT INTO tbl_Publisher(nm_Publisher) VALUES (@publisher) SET @IdPublisher = SCOPE_IDENTITY(); " +
-                        "INSERT INTO tbl_writer(nm_Writer) Values(@writer) SET @IdWriter = SCOPE_IDENTITY();" +
                         "END " +
-                        "ELSE " +
+                        "IF @IdPublisher IS NULL " +
+                        "BEGIN " +
+                        "INSERT INTO tbl_Publisher(nm_Publisher) VALUES (@publisher) SET @IdPublisher = SCOPE_IDENTITY(); " +
+                        "END " +
+                        "IF @IdWriter IS NULL " +
+                        "BEGIN " +
+                        "INSERT INTO tbl_writer(nm_Writer) Values(@writer) SET @IdWriter = SCOPE_IDENTITY(); " +
+                        "END " +
+                        "IF @IdCategory IS NOT NULL AND @IdPublisher IS NOT NULL AND @IdWriter IS NOT NULL AND @IdBook IS NULL " +
                         "BEGIN   " +
                         "INSERT INTO tbl_Book(nm_Book,no_Page, Price_Book,qt_Stock,dt_Release,cd_Category,cd_Publisher) VALUES(@title,@noPage,@price,@quantStock,@dataRelease,@IdCategory,@IdPublisher) SET @IdBook = SCOPE_IDENTITY(); INSERT INTO tbl_writerBook(cd_Writer,cd_Book) VALUES(@IdWriter,@IdBook);" +
                         "END;";
