@@ -22,12 +22,14 @@ namespace Livraria
         private void btnEmployee_Click(object sender, EventArgs e)
         {
 
-            if (clientControl1.Visible == true || phoneControl1.Visible == true)
+            if (clientControl1.Visible == true || phoneControl1.Visible == true || bookControl1.Visible == true)
             {
                 phoneControl1.Visible = false;
                 phoneControl1.Enabled = false;
                 clientControl1.Visible = false;
                 clientControl1.Enabled = false;
+                bookControl1.Enabled = false;
+                bookControl1.Visible = false;
             }
             if (employeeControl1.Visible == false)
             {

@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PasswordInput = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -54,7 +58,11 @@
             this.dateInput = new System.Windows.Forms.DateTimePicker();
             this.writerInput = new System.Windows.Forms.TextBox();
             this.Writer = new System.Windows.Forms.Label();
+            this.dataView = new System.Windows.Forms.DataGridView();
+            this.BookInput = new System.Windows.Forms.TextBox();
+            this.Search = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -114,6 +122,7 @@
             this.btnRemove.TabIndex = 4;
             this.btnRemove.Text = "Remover";
             this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnChange
             // 
@@ -171,7 +180,7 @@
             this.BookTitle.AutoSize = true;
             this.BookTitle.Font = new System.Drawing.Font("Malgun Gothic", 18F, System.Drawing.FontStyle.Bold);
             this.BookTitle.ForeColor = System.Drawing.Color.DarkRed;
-            this.BookTitle.Location = new System.Drawing.Point(271, 19);
+            this.BookTitle.Location = new System.Drawing.Point(313, 17);
             this.BookTitle.Name = "BookTitle";
             this.BookTitle.Size = new System.Drawing.Size(81, 32);
             this.BookTitle.TabIndex = 42;
@@ -370,10 +379,74 @@
             this.Writer.TabIndex = 60;
             this.Writer.Text = "Autor:";
             // 
+            // dataView
+            // 
+            this.dataView.BackgroundColor = System.Drawing.Color.MistyRose;
+            this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataView.GridColor = System.Drawing.Color.DarkRed;
+            this.dataView.Location = new System.Drawing.Point(71, 454);
+            this.dataView.MultiSelect = false;
+            this.dataView.Name = "dataView";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataView.Size = new System.Drawing.Size(563, 263);
+            this.dataView.TabIndex = 64;
+            this.dataView.DoubleClick += new System.EventHandler(this.dataView_DoubleClick);
+            // 
+            // BookInput
+            // 
+            this.BookInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.BookInput.Location = new System.Drawing.Point(131, 402);
+            this.BookInput.Name = "BookInput";
+            this.BookInput.Size = new System.Drawing.Size(503, 25);
+            this.BookInput.TabIndex = 62;
+            this.BookInput.TextChanged += new System.EventHandler(this.BookInput_TextChanged);
+            // 
+            // Search
+            // 
+            this.Search.AutoSize = true;
+            this.Search.Font = new System.Drawing.Font("Malgun Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.Search.ForeColor = System.Drawing.Color.DarkRed;
+            this.Search.Location = new System.Drawing.Point(314, 360);
+            this.Search.Name = "Search";
+            this.Search.Size = new System.Drawing.Size(144, 25);
+            this.Search.TabIndex = 63;
+            this.Search.Text = "Pesquisar livro";
+            // 
             // BookControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MistyRose;
+            this.Controls.Add(this.dataView);
+            this.Controls.Add(this.BookInput);
+            this.Controls.Add(this.Search);
             this.Controls.Add(this.writerInput);
             this.Controls.Add(this.Writer);
             this.Controls.Add(this.dateInput);
@@ -398,6 +471,7 @@
             this.Size = new System.Drawing.Size(960, 739);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -431,5 +505,8 @@
         private System.Windows.Forms.DateTimePicker dateInput;
         private System.Windows.Forms.TextBox writerInput;
         private System.Windows.Forms.Label Writer;
+        private System.Windows.Forms.DataGridView dataView;
+        private System.Windows.Forms.TextBox BookInput;
+        private System.Windows.Forms.Label Search;
     }
 }

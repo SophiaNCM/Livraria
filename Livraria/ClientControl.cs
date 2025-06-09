@@ -316,7 +316,7 @@ namespace Livraria
                 try
                 {
                     cn.Open();
-                    cm.CommandText = "select * from viewClientEPhone where nm_Client like ('"+SearchInput.Text+"%')";
+                    cm.CommandText = "select * from viewClientEPhone where Cliente like ('"+SearchInput.Text+"%')";
                     cm.Connection = cn;
 
                     SqlDataAdapter da = new SqlDataAdapter();

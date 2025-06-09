@@ -64,6 +64,18 @@ namespace Livraria
             btnRemove.Enabled = false;
             btnRemove.BackColor = Color.Maroon;
         }
+        private void getBook()
+        {
+            idOutput.Text = dataView.SelectedRows[0].Cells[0].Value.ToString();
+            titleText.Text = dataView.SelectedRows[0].Cells[1].Value.ToString();
+            pageInput.Text = dataView.SelectedRows[0].Cells[2].Value.ToString();
+            priceInput.Text = dataView.SelectedRows[0].Cells[3].Value.ToString();
+            StockInput.Text = dataView.SelectedRows[0].Cells[4].Value.ToString();
+            dateInput.Text = dataView.SelectedRows[0].Cells[5].Value.ToString();
+            CategoryInput.Text = dataView.SelectedRows[0].Cells[6].Value.ToString();
+            publisherInput.Text = dataView.SelectedRows[0].Cells[7].Value.ToString();
+            writerInput.Text = dataView.SelectedRows[0].Cells[8].Value.ToString();
+        }
         private void btnNew_Click(object sender, EventArgs e)
         {
             habilitarCampos();
@@ -153,6 +165,46 @@ namespace Livraria
         {
             limparCampos();
             DesabilitaCampos();
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BookInput_TextChanged(object sender, EventArgs e)
+        {
+            if (BookInput.Text != "")
+            {
+                try
+                {
+                    cn.Open();
+                    cm.CommandText = "SELECT * FROM viewBook_AllInfo;";
+                    cm.Connection = cn;
+
+                    SqlDataAdapter da = new SqlDataAdapter();
+
+                    DataTable dt = new DataTable();
+                    da.SelectCommand = cm;
+                    da.Fill(dt);
+                    dataView.DataSource = dt;
+                    cn.Close();
+
+                }
+                catch (Exception error){
+                    MessageBox.Show(error.Message);
+                }
+
+            }
+            else
+            {
+                dataView.DataSource = null;
+            }
+        }
+
+        private void dataView_DoubleClick(object sender, EventArgs e)
+        {
+            getBook();
         }
     }
 }

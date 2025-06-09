@@ -174,7 +174,7 @@ namespace Livraria
                 try
                 {
                     cn.Open();
-                    cm.CommandText = "select * from tbl_employee where nm_employee like ('" + SearchInput.Text + "%')";
+                    cm.CommandText = "select cd_empoyee AS 'codigo', ds_login AS 'Login', ds_password AS 'Senha', nm_employee AS 'Nome', ds_status AS 'Status' from tbl_employee where nm_employee like ('" + SearchInput.Text + "%')";
                     cm.Connection = cn;
 
                     //receber os dados de uma tabela após a execução de um select
