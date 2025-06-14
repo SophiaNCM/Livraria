@@ -541,7 +541,6 @@ namespace Livraria
                     cm.ExecuteNonQuery();
                     
                     cm.Connection = cn;
-                    cm.ExecuteNonQuery();
                     cm.Parameters.Clear();
                     MessageBox.Show("Dados alterados", "Feito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     limparCampos();

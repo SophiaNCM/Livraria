@@ -33,6 +33,7 @@ namespace Livraria
             publisherInput.Clear();
             writerInput.Clear();
             idOutput.Text = "";
+            BookInput.Text = "";
 
         }
         private void habilitarCampos()
@@ -67,6 +68,16 @@ namespace Livraria
         }
         private void getBook()
         {
+            titleText.Enabled = true;
+            priceInput.Enabled = true;
+            pageInput.Enabled= true;
+            StockInput.Enabled= true;
+            dateInput.Enabled= true;
+            publisherInput.Enabled= true;
+            writerInput.Enabled= true;
+            CategoryInput.Enabled= true;
+
+
             idOutput.Text = dataView.SelectedRows[0].Cells[0].Value.ToString();
             titleText.Text = dataView.SelectedRows[0].Cells[1].Value.ToString();
             pageInput.Text = dataView.SelectedRows[0].Cells[2].Value.ToString();
@@ -253,11 +264,58 @@ namespace Livraria
             }
             else
             {
+                string IdBook = idOutput.Text;
+                string title = titleText.Text;
+                string price = priceInput.Text;
+                string noPage = pageInput.Text;
+                string quantStock = StockInput.Text;
+                string dataRelease = dateInput.Text;
+                string category = CategoryInput.Text;
+                string publisher = publisherInput.Text;
+                string writer = writerInput.Text;
                 try
                 {
-                    cn.Open();
-                    cm.CommandText = "UPDATE tbl_book";
+                   
+                    cm.CommandText ="DECLARE @IdCategory INT; " +
+                        "DECLARE @IdPublisher INT; " +
+                        "DECLARE @IdWriter INT; " +
+                        "SELECT @IdCategory = cd_Category FROM tbl_Category WHERE nm_Category = @category; " +
+                        "SELECT @IdPublisher = cd_publisher FROM tbl_Publisher Where nm_Publisher =@publisher; " +
+                        "SELECT @IdWriter = cd_Writer FROM tbl_writer Where nm_Writer =@writer; " +
+                        "IF @IdCategory IS NULL " +
+                        "BEGIN " +
+                        "INSERT INTO tbl_Category(nm_Category) VALUES (@category) SET @IdCategory = SCOPE_IDENTITY(); " +
+                        "END " +
+                        "IF @IdPublisher IS NULL " +
+                        "BEGIN " +
+                        "INSERT INTO tbl_Publisher(nm_Publisher) VALUES (@publisher) SET @IdPublisher = SCOPE_IDENTITY(); " +
+                        "END " +
+                        "IF @IdWriter IS NULL " +
+                        "BEGIN " +
+                        "INSERT INTO tbl_writer(nm_Writer) Values(@writer) SET @IdWriter = SCOPE_IDENTITY(); " +
+                        "END " +
+                        "IF @IdCategory IS NOT NULL AND @IdPublisher IS NOT NULL AND @IdWriter IS NOT NULL " +
+                        "BEGIN   " +
+                        "UPDATE tbl_book set nm_Book = @title, no_Page = @noPage, Price_Book = @price, qt_Stock =@quantStock, dt_Release = @dataRelease, cd_Category = @IdCategory, cd_Publisher = @IdPublisher WHERE cd_Book = @IdBook; UPDATE tbl_writerBook set cd_Writer =@IdWriter WHERE cd_Book = @IdBook;" +
+                        "END;";
                     cm.Connection = cn;
+                    cm.Parameters.Add("@IdBook", SqlDbType.Int).Value = IdBook;
+                    cm.Parameters.Add("@category", SqlDbType.VarChar).Value = category;
+                    cm.Parameters.Add("@publisher", SqlDbType.VarChar).Value = publisher;
+                    cm.Parameters.Add("@title", SqlDbType.VarChar).Value = title;
+                    cm.Parameters.Add("@noPage", SqlDbType.VarChar).Value = noPage;
+                    cm.Parameters.Add("@price", SqlDbType.Decimal).Value = price;
+                    cm.Parameters.Add("@quantStock", SqlDbType.Int).Value = quantStock;
+                    cm.Parameters.Add("@dataRelease", SqlDbType.Date).Value = dataRelease;
+                    cm.Parameters.Add("@writer", SqlDbType.VarChar).Value = writer;
+                    cn.Open();
+                    cm.ExecuteNonQuery();
+
+                    cm.Connection = cn;
+                    cm.Parameters.Clear();
+                    MessageBox.Show("Dados alterados", "Feito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    limparCampos();
+
                 }
                 catch (Exception ex) {
                     MessageBox.Show(ex.Message);
