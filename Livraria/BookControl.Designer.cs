@@ -140,6 +140,7 @@
             this.btnChange.TabIndex = 3;
             this.btnChange.Text = "Alterar";
             this.btnChange.UseVisualStyleBackColor = false;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // btnSave
             // 

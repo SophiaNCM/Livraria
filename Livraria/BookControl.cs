@@ -32,6 +32,7 @@ namespace Livraria
             CategoryInput.Clear();
             publisherInput.Clear();
             writerInput.Clear();
+            idOutput.Text = "";
 
         }
         private void habilitarCampos()
@@ -169,7 +170,36 @@ namespace Livraria
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
+            if (titleInput.Text == "" || pageInput.Text == "" || priceInput.Text == "" || StockInput.Text == "" || CategoryInput.Text == "" || publisherInput.Text == "" || writerInput.Text == "")
+            {
+                MessageBox.Show("Nenhum campo pode estar vazio", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
+                {
+                    int id = Convert.ToInt32(idOutput.Text);
+                    string stringsql = "DELETE FROM tbl_writerBook WHERE cd_Book = @id;DELETE FROM tbl_Book WHERE cd_Book = @id";
+                    cm.CommandText = stringsql;
+                    cm.Connection = cn;
+                    cm.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                    cn.Open();
+                    cm.ExecuteNonQuery();
+                    MessageBox.Show("Os dados foram removidos","Feito",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    limparCampos();
+                    cm.Parameters.Clear();
 
+                      
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
         }
 
         private void BookInput_TextChanged(object sender, EventArgs e)
@@ -179,7 +209,7 @@ namespace Livraria
                 try
                 {
                     cn.Open();
-                    cm.CommandText = "SELECT * FROM viewBook_AllInfo;";
+                    cm.CommandText = "SELECT * FROM viewBook_AllInfo where titulo like ('"+BookInput.Text+"%')";
                     cm.Connection = cn;
 
                     SqlDataAdapter da = new SqlDataAdapter();
@@ -205,6 +235,38 @@ namespace Livraria
         private void dataView_DoubleClick(object sender, EventArgs e)
         {
             getBook();
+            btnCancel.Enabled = true;
+            btnCancel.BackColor = Color.DarkRed;
+            btnRemove.Enabled = true;
+            btnRemove.BackColor = Color.DarkRed;
+            btnChange.Enabled = true;
+            btnChange.BackColor = Color.DarkRed;
+            btnNew.Enabled = false; 
+            btnNew.BackColor = Color.Maroon;
+        }
+
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+            if (titleInput.Text == "" || pageInput.Text == "" || priceInput.Text == "" || StockInput.Text == "" || CategoryInput.Text == "" || publisherInput.Text == "" || writerInput.Text == "")
+            {
+                MessageBox.Show("Nenhum campo pode estar vazio", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
+                {
+                    cn.Open();
+                    cm.CommandText = "UPDATE tbl_book";
+                    cm.Connection = cn;
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
         }
     }
 }
