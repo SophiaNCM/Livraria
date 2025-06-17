@@ -1,6 +1,6 @@
 ﻿namespace Livraria
 {
-    partial class EmployeeControl
+    partial class PublisherControl
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -31,26 +31,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.NumberLabel = new System.Windows.Forms.Label();
+            this.IdOutput = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
-            this.btnOff = new System.Windows.Forms.RadioButton();
-            this.btnOn = new System.Windows.Forms.RadioButton();
-            this.status = new System.Windows.Forms.Label();
-            this.PasswordInput = new System.Windows.Forms.TextBox();
-            this.Password = new System.Windows.Forms.Label();
-            this.UserInput = new System.Windows.Forms.TextBox();
-            this.User = new System.Windows.Forms.Label();
-            this.nameText = new System.Windows.Forms.TextBox();
-            this.NameInput = new System.Windows.Forms.Label();
+            this.PublisherInput = new System.Windows.Forms.TextBox();
+            this.lbl_publisher = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnChange = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
-            this.EmployeeTitle = new System.Windows.Forms.Label();
-            this.Search = new System.Windows.Forms.Label();
+            this.Publisher = new System.Windows.Forms.Label();
             this.SearchInput = new System.Windows.Forms.TextBox();
+            this.Search = new System.Windows.Forms.Label();
             this.dataView = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
@@ -59,38 +53,31 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkRed;
-            this.panel1.Controls.Add(this.NumberLabel);
+            this.panel1.Controls.Add(this.IdOutput);
             this.panel1.Controls.Add(this.idLabel);
-            this.panel1.Controls.Add(this.btnOff);
-            this.panel1.Controls.Add(this.btnOn);
-            this.panel1.Controls.Add(this.status);
-            this.panel1.Controls.Add(this.PasswordInput);
-            this.panel1.Controls.Add(this.Password);
-            this.panel1.Controls.Add(this.UserInput);
-            this.panel1.Controls.Add(this.User);
-            this.panel1.Controls.Add(this.nameText);
-            this.panel1.Controls.Add(this.NameInput);
+            this.panel1.Controls.Add(this.PublisherInput);
+            this.panel1.Controls.Add(this.lbl_publisher);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnRemove);
             this.panel1.Controls.Add(this.btnChange);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.btnNew);
-            this.panel1.Controls.Add(this.EmployeeTitle);
+            this.panel1.Controls.Add(this.Publisher);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(683, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(277, 739);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 1;
             // 
-            // NumberLabel
+            // IdOutput
             // 
-            this.NumberLabel.AutoSize = true;
-            this.NumberLabel.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.NumberLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.NumberLabel.Location = new System.Drawing.Point(92, 75);
-            this.NumberLabel.Name = "NumberLabel";
-            this.NumberLabel.Size = new System.Drawing.Size(0, 19);
-            this.NumberLabel.TabIndex = 17;
+            this.IdOutput.AutoSize = true;
+            this.IdOutput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.IdOutput.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.IdOutput.Location = new System.Drawing.Point(92, 75);
+            this.IdOutput.Name = "IdOutput";
+            this.IdOutput.Size = new System.Drawing.Size(0, 19);
+            this.IdOutput.TabIndex = 17;
             // 
             // idLabel
             // 
@@ -105,108 +92,26 @@
             this.idLabel.Text = "Id:";
             this.idLabel.Visible = false;
             // 
-            // btnOff
+            // PublisherInput
             // 
-            this.btnOff.AutoSize = true;
-            this.btnOff.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnOff.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnOff.Location = new System.Drawing.Point(165, 264);
-            this.btnOff.Name = "btnOff";
-            this.btnOff.Size = new System.Drawing.Size(74, 23);
-            this.btnOff.TabIndex = 15;
-            this.btnOff.TabStop = true;
-            this.btnOff.Text = "Inativo";
-            this.btnOff.UseVisualStyleBackColor = true;
-            this.btnOff.CheckedChanged += new System.EventHandler(this.btnOff_CheckedChanged);
+            this.PublisherInput.BackColor = System.Drawing.SystemColors.Window;
+            this.PublisherInput.Enabled = false;
+            this.PublisherInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.PublisherInput.Location = new System.Drawing.Point(96, 111);
+            this.PublisherInput.Name = "PublisherInput";
+            this.PublisherInput.Size = new System.Drawing.Size(143, 25);
+            this.PublisherInput.TabIndex = 8;
             // 
-            // btnOn
+            // lbl_publisher
             // 
-            this.btnOn.AutoSize = true;
-            this.btnOn.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnOn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnOn.Location = new System.Drawing.Point(96, 264);
-            this.btnOn.Name = "btnOn";
-            this.btnOn.Size = new System.Drawing.Size(63, 23);
-            this.btnOn.TabIndex = 14;
-            this.btnOn.TabStop = true;
-            this.btnOn.Text = "Ativo";
-            this.btnOn.UseVisualStyleBackColor = true;
-            // 
-            // status
-            // 
-            this.status.AutoSize = true;
-            this.status.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.status.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.status.Location = new System.Drawing.Point(35, 264);
-            this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(54, 19);
-            this.status.TabIndex = 13;
-            this.status.Text = "Status:";
-            // 
-            // PasswordInput
-            // 
-            this.PasswordInput.BackColor = System.Drawing.Color.Silver;
-            this.PasswordInput.Enabled = false;
-            this.PasswordInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.PasswordInput.Location = new System.Drawing.Point(96, 210);
-            this.PasswordInput.Name = "PasswordInput";
-            this.PasswordInput.Size = new System.Drawing.Size(143, 25);
-            this.PasswordInput.TabIndex = 12;
-            // 
-            // Password
-            // 
-            this.Password.AutoSize = true;
-            this.Password.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.Password.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Password.Location = new System.Drawing.Point(36, 210);
-            this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(54, 19);
-            this.Password.TabIndex = 11;
-            this.Password.Text = "Senha:";
-            // 
-            // UserInput
-            // 
-            this.UserInput.BackColor = System.Drawing.Color.Silver;
-            this.UserInput.Enabled = false;
-            this.UserInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.UserInput.Location = new System.Drawing.Point(96, 158);
-            this.UserInput.Name = "UserInput";
-            this.UserInput.Size = new System.Drawing.Size(143, 25);
-            this.UserInput.TabIndex = 10;
-            this.UserInput.TextChanged += new System.EventHandler(this.UserInput_TextChanged);
-            // 
-            // User
-            // 
-            this.User.AutoSize = true;
-            this.User.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.User.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.User.Location = new System.Drawing.Point(36, 158);
-            this.User.Name = "User";
-            this.User.Size = new System.Drawing.Size(51, 19);
-            this.User.TabIndex = 9;
-            this.User.Text = "Login:";
-            // 
-            // nameText
-            // 
-            this.nameText.BackColor = System.Drawing.Color.Silver;
-            this.nameText.Enabled = false;
-            this.nameText.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.nameText.Location = new System.Drawing.Point(96, 111);
-            this.nameText.Name = "nameText";
-            this.nameText.Size = new System.Drawing.Size(143, 25);
-            this.nameText.TabIndex = 8;
-            this.nameText.TextChanged += new System.EventHandler(this.nameText_TextChanged);
-            // 
-            // NameInput
-            // 
-            this.NameInput.AutoSize = true;
-            this.NameInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.NameInput.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.NameInput.Location = new System.Drawing.Point(36, 111);
-            this.NameInput.Name = "NameInput";
-            this.NameInput.Size = new System.Drawing.Size(54, 19);
-            this.NameInput.TabIndex = 7;
-            this.NameInput.Text = "Nome:";
+            this.lbl_publisher.AutoSize = true;
+            this.lbl_publisher.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.lbl_publisher.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_publisher.Location = new System.Drawing.Point(36, 111);
+            this.lbl_publisher.Name = "lbl_publisher";
+            this.lbl_publisher.Size = new System.Drawing.Size(62, 19);
+            this.lbl_publisher.TabIndex = 7;
+            this.lbl_publisher.Text = "Editora:";
             // 
             // btnCancel
             // 
@@ -242,7 +147,6 @@
             this.btnRemove.TabIndex = 4;
             this.btnRemove.Text = "Remover";
             this.btnRemove.UseVisualStyleBackColor = false;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnChange
             // 
@@ -260,7 +164,6 @@
             this.btnChange.TabIndex = 3;
             this.btnChange.Text = "Alterar";
             this.btnChange.UseVisualStyleBackColor = false;
-            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // btnSave
             // 
@@ -296,43 +199,43 @@
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // EmployeeTitle
+            // Publisher
             // 
-            this.EmployeeTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.EmployeeTitle.AutoSize = true;
-            this.EmployeeTitle.Font = new System.Drawing.Font("Malgun Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.EmployeeTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.EmployeeTitle.Location = new System.Drawing.Point(67, 21);
-            this.EmployeeTitle.Name = "EmployeeTitle";
-            this.EmployeeTitle.Size = new System.Drawing.Size(150, 32);
-            this.EmployeeTitle.TabIndex = 0;
-            this.EmployeeTitle.Text = "Funcionario";
+            this.Publisher.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Publisher.AutoSize = true;
+            this.Publisher.Font = new System.Drawing.Font("Malgun Gothic", 18F, System.Drawing.FontStyle.Bold);
+            this.Publisher.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Publisher.Location = new System.Drawing.Point(101, 19);
+            this.Publisher.Name = "Publisher";
+            this.Publisher.Size = new System.Drawing.Size(95, 32);
+            this.Publisher.TabIndex = 0;
+            this.Publisher.Text = "Editora";
+            // 
+            // SearchInput
+            // 
+            this.SearchInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.SearchInput.Location = new System.Drawing.Point(129, 68);
+            this.SearchInput.Name = "SearchInput";
+            this.SearchInput.Size = new System.Drawing.Size(429, 25);
+            this.SearchInput.TabIndex = 17;
+            this.SearchInput.TextChanged += new System.EventHandler(this.SearchInput_TextChanged);
             // 
             // Search
             // 
             this.Search.AutoSize = true;
             this.Search.Font = new System.Drawing.Font("Malgun Gothic", 14F, System.Drawing.FontStyle.Bold);
             this.Search.ForeColor = System.Drawing.Color.DarkRed;
-            this.Search.Location = new System.Drawing.Point(210, 27);
+            this.Search.Location = new System.Drawing.Point(240, 26);
             this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(249, 25);
-            this.Search.TabIndex = 16;
-            this.Search.Text = "Pesquisar por Funcionario";
-            // 
-            // SearchInput
-            // 
-            this.SearchInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.SearchInput.Location = new System.Drawing.Point(126, 69);
-            this.SearchInput.Name = "SearchInput";
-            this.SearchInput.Size = new System.Drawing.Size(429, 25);
-            this.SearchInput.TabIndex = 16;
-            this.SearchInput.TextChanged += new System.EventHandler(this.SearchInput_TextChanged);
+            this.Search.Size = new System.Drawing.Size(206, 25);
+            this.Search.TabIndex = 18;
+            this.Search.Text = "Pesquisar por editora";
             // 
             // dataView
             // 
             this.dataView.BackgroundColor = System.Drawing.Color.MistyRose;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.MistyRose;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -341,32 +244,34 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.MistyRose;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataView.GridColor = System.Drawing.Color.DarkRed;
-            this.dataView.Location = new System.Drawing.Point(126, 121);
+            this.dataView.Location = new System.Drawing.Point(189, 133);
             this.dataView.MultiSelect = false;
             this.dataView.Name = "dataView";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.MistyRose;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataView.Size = new System.Drawing.Size(429, 429);
-            this.dataView.TabIndex = 19;
+            this.dataView.Size = new System.Drawing.Size(311, 441);
+            this.dataView.TabIndex = 65;
             this.dataView.DoubleClick += new System.EventHandler(this.dataView_DoubleClick);
             // 
-            // EmployeeControl
+            // PublisherControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -375,7 +280,7 @@
             this.Controls.Add(this.SearchInput);
             this.Controls.Add(this.Search);
             this.Controls.Add(this.panel1);
-            this.Name = "EmployeeControl";
+            this.Name = "PublisherControl";
             this.Size = new System.Drawing.Size(960, 739);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -388,25 +293,18 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label EmployeeTitle;
-        private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnChange;
-        private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label NameInput;
-        private System.Windows.Forms.TextBox nameText;
-        private System.Windows.Forms.TextBox UserInput;
-        private System.Windows.Forms.Label User;
-        private System.Windows.Forms.Label Password;
-        private System.Windows.Forms.TextBox PasswordInput;
-        private System.Windows.Forms.Label status;
-        private System.Windows.Forms.RadioButton btnOn;
-        private System.Windows.Forms.RadioButton btnOff;
-        private System.Windows.Forms.Label Search;
-        private System.Windows.Forms.TextBox SearchInput;
-        private System.Windows.Forms.DataGridView dataView;
+        private System.Windows.Forms.Label IdOutput;
         private System.Windows.Forms.Label idLabel;
-        private System.Windows.Forms.Label NumberLabel;
+        private System.Windows.Forms.TextBox PublisherInput;
+        private System.Windows.Forms.Label lbl_publisher;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnChange;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Label Publisher;
+        private System.Windows.Forms.TextBox SearchInput;
+        private System.Windows.Forms.Label Search;
+        private System.Windows.Forms.DataGridView dataView;
     }
 }

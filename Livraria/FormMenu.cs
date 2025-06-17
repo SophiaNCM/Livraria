@@ -157,5 +157,40 @@ namespace Livraria
                 bookControl1.Enabled = false;
             }
         }
+
+        private void btnPublisher_Click(object sender, EventArgs e)
+        {
+
+            if (employeeControl1.Visible == true || clientControl1.Visible == true || phoneControl1.Visible == true || bookControl1.Visible == true)
+            {
+                btnClient.BackColor = Color.DarkRed;
+                clientControl1.Visible = false;
+                clientControl1.Enabled = false;
+
+                btnEmployee.BackColor = Color.DarkRed;
+                employeeControl1.Visible = false;
+                employeeControl1.Enabled = false;
+
+                btnPhone.BackColor = Color.DarkRed;
+                phoneControl1.Visible = false;
+                phoneControl1.Enabled = false;
+
+                btnBook.BackColor = Color.DarkRed;
+                bookControl1.Visible = false;
+                bookControl1.Enabled = false;
+            }
+            if (publisherControl1.Visible == false)
+            {
+                btnPublisher.BackColor = Color.Maroon;
+                publisherControl1.Visible = true;
+                publisherControl1.Enabled = true;
+            }
+            else
+            {
+                btnPublisher.BackColor = Color.DarkRed;
+                publisherControl1.Visible = false;
+                publisherControl1.Enabled = false;
+            }
+        }
     }
 }

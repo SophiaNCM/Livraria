@@ -326,5 +326,15 @@ namespace Livraria
                 }
             }
         }
+
+        private void writerInput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void publisherInput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

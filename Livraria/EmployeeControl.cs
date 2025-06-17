@@ -40,13 +40,15 @@ namespace Livraria
             btnOn.Enabled = false;
             btnOff.Enabled = false;
             nameText.Enabled = false;
-  
+            nameText.BackColor = Color.Silver;
+
 
             UserInput.Enabled = false;
-      
+            UserInput.BackColor = Color.Silver;
 
             PasswordInput.Enabled = false;
-     
+            PasswordInput.BackColor = Color.Silver;
+
 
             btnCancel.Enabled = false;
             btnCancel.BackColor = Color.Maroon;
@@ -74,13 +76,15 @@ namespace Livraria
             btnOff.Enabled = true;
 
             nameText.Enabled = true;
-  
+            nameText.BackColor = Color.White;
 
             UserInput.Enabled = true;
-      
+            UserInput.BackColor = Color.White;
+
 
             PasswordInput.Enabled = true;
-        
+            PasswordInput.BackColor = Color.White;
+
 
             btnCancel.Enabled = true;
             btnCancel.BackColor = Color.DarkRed;
@@ -92,6 +96,7 @@ namespace Livraria
 
             btnNew.Enabled = false;
             btnNew.BackColor = Color.Maroon;
+
 
             Search.Text = "";
             dataView.DataSource = null;
@@ -381,6 +386,11 @@ namespace Livraria
         }
 
         private void nameText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UserInput_TextChanged(object sender, EventArgs e)
         {
 
         }

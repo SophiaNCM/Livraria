@@ -46,6 +46,7 @@
             this.phoneControl1 = new Livraria.PhoneControl();
             this.clientControl1 = new Livraria.ClientControl();
             this.employeeControl1 = new Livraria.EmployeeControl();
+            this.publisherControl1 = new Livraria.PublisherControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
@@ -166,8 +167,9 @@
             this.btnPublisher.Name = "btnPublisher";
             this.btnPublisher.Size = new System.Drawing.Size(329, 42);
             this.btnPublisher.TabIndex = 6;
-            this.btnPublisher.Text = "Editora";
+            this.btnPublisher.Text = "Editoras";
             this.btnPublisher.UseVisualStyleBackColor = false;
+            this.btnPublisher.Click += new System.EventHandler(this.btnPublisher_Click);
             // 
             // btnCategory
             // 
@@ -297,12 +299,21 @@
             this.employeeControl1.Size = new System.Drawing.Size(960, 739);
             this.employeeControl1.TabIndex = 1;
             // 
+            // publisherControl1
+            // 
+            this.publisherControl1.BackColor = System.Drawing.Color.MistyRose;
+            this.publisherControl1.Location = new System.Drawing.Point(320, 0);
+            this.publisherControl1.Name = "publisherControl1";
+            this.publisherControl1.Size = new System.Drawing.Size(960, 739);
+            this.publisherControl1.TabIndex = 5;
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(1280, 739);
+            this.Controls.Add(this.publisherControl1);
             this.Controls.Add(this.bookControl1);
             this.Controls.Add(this.phoneControl1);
             this.Controls.Add(this.clientControl1);
@@ -339,5 +350,6 @@
         private ClientControl clientControl1;
         private PhoneControl phoneControl1;
         private BookControl bookControl1;
+        private PublisherControl publisherControl1;
     }
 }
