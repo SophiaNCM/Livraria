@@ -190,7 +190,7 @@ namespace Livraria
                 try
                 {
                     int id = Convert.ToInt32(idOutput.Text);
-                    string stringsql = "DELETE FROM tbl_writerBook WHERE cd_Book = @id;DELETE FROM tbl_Book WHERE cd_Book = @id";
+                    string stringsql = "DELETE FROM tbl_writerBook WHERE cd_Book = @id;DELETE FROM tbl_Book WHERE cd_Book = @id;";
                     cm.CommandText = stringsql;
                     cm.Connection = cn;
                     cm.Parameters.Add("@id", SqlDbType.Int).Value = id;
