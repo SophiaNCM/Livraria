@@ -24,7 +24,7 @@ namespace Livraria
         private void btnEmployee_Click(object sender, EventArgs e)
         {
 
-            if (clientControl1.Visible == true || phoneControl1.Visible == true || bookControl1.Visible == true)
+            if (clientControl1.Visible == true || phoneControl1.Visible == true || bookControl1.Visible == true || publisherControl1.Visible == true)
             {
                 btnPhone.BackColor = Color.DarkRed;
                 phoneControl1.Visible = false;
@@ -37,6 +37,10 @@ namespace Livraria
                 btnBook.BackColor = Color.DarkRed;
                 bookControl1.Enabled = false;
                 bookControl1.Visible = false;
+
+                btnPublisher.BackColor = Color.DarkRed;
+                publisherControl1.Visible = false;
+                publisherControl1.Enabled = false;
             }
             if (employeeControl1.Visible == false)
             {
@@ -67,7 +71,7 @@ namespace Livraria
 
         private void btnClient_Click(object sender, EventArgs e)
         {
-            if (employeeControl1.Visible == true || phoneControl1.Visible == true || bookControl1.Visible == true)
+            if (employeeControl1.Visible == true || phoneControl1.Visible == true || bookControl1.Visible == true || publisherControl1.Visible == true)
             {
                 btnPhone.BackColor = Color.DarkRed;
                 phoneControl1.Visible = false;
@@ -80,14 +84,18 @@ namespace Livraria
                 btnBook.BackColor = Color.DarkRed;
                 bookControl1.Enabled = false;
                 bookControl1.Visible = false;
+
+                btnPublisher.BackColor = Color.DarkRed;
+                publisherControl1.Visible = false;
+                publisherControl1.Enabled = false;
             }
-            if (clientControl1.Visible == false) 
+            if (clientControl1.Visible == false)
             {
                 btnClient.BackColor = Color.Maroon;
-                clientControl1.Visible = true; 
+                clientControl1.Visible = true;
                 clientControl1.Enabled = true;
-            } else 
-            { 
+            } else
+            {
                 btnClient.BackColor = Color.DarkRed;
                 clientControl1.Visible = false;
                 clientControl1.Enabled = false;
@@ -96,9 +104,9 @@ namespace Livraria
 
         private void btnPhone_Click(object sender, EventArgs e)
         {
-            if (employeeControl1.Visible == true || clientControl1.Visible == true || bookControl1.Visible == true)
+            if (employeeControl1.Visible == true || clientControl1.Visible == true || bookControl1.Visible == true || publisherControl1.Visible == true)
             {
-                btnClient.BackColor= Color.DarkRed;
+                btnClient.BackColor = Color.DarkRed;
                 clientControl1.Visible = false;
                 clientControl1.Enabled = false;
 
@@ -109,6 +117,10 @@ namespace Livraria
                 btnBook.BackColor = Color.DarkRed;
                 bookControl1.Enabled = false;
                 bookControl1.Visible = false;
+
+                btnPublisher.BackColor = Color.DarkRed;
+                publisherControl1.Visible = false;
+                publisherControl1.Enabled = false;
             }
             if (phoneControl1.Visible == false)
             {
@@ -118,7 +130,7 @@ namespace Livraria
             }
             else
             {
-                btnPhone.BackColor= Color.DarkRed;
+                btnPhone.BackColor = Color.DarkRed;
                 phoneControl1.Visible = false;
                 phoneControl1.Enabled = false;
             }
@@ -131,7 +143,7 @@ namespace Livraria
 
         private void btnBook_Click(object sender, EventArgs e)
         {
-            if (employeeControl1.Visible == true || clientControl1.Visible == true || phoneControl1.Visible == true)
+            if (employeeControl1.Visible == true || clientControl1.Visible == true || phoneControl1.Visible == true || publisherControl1.Visible == true)
             {
                 btnClient.BackColor = Color.DarkRed;
                 clientControl1.Visible = false;
@@ -140,9 +152,15 @@ namespace Livraria
                 btnEmployee.BackColor = Color.DarkRed;
                 employeeControl1.Visible = false;
                 employeeControl1.Enabled = false;
+
+
                 btnPhone.BackColor = Color.DarkRed;
                 phoneControl1.Visible=false;
                 phoneControl1.Enabled=false;
+
+                btnPublisher.BackColor = Color.DarkRed;
+                publisherControl1.Visible = false;
+                publisherControl1.Enabled = false;
             }
             if (bookControl1.Visible == false)
             {
@@ -191,6 +209,11 @@ namespace Livraria
                 publisherControl1.Visible = false;
                 publisherControl1.Enabled = false;
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

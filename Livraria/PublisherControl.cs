@@ -17,6 +17,7 @@ namespace Livraria
         {
             InitializeComponent();
             SearchInput.Enabled = false;
+            PublisherInput.Enabled = false;
         }
         //Conexao com database
         SqlConnection cn = new SqlConnection(@"Data Source=COMPUTADOR-SOPH;integrated security=SSPI;initial Catalog=db_livraria");
@@ -29,15 +30,20 @@ namespace Livraria
 
         private void desabilitaCampos()
         {
+            SearchInput.Enabled = false;
+            SearchInput.Clear();
             PublisherInput.BackColor = Color.Silver;
             PublisherInput.Enabled = false;
-
+            btn_Publisher.BackColor = Color.Firebrick;
+            btn_PublisherBooks.BackColor = Color.Firebrick;
             btnChange.Enabled = false;
             btnChange.BackColor = Color.Maroon;
             btnSave.Enabled = false;
             btnSave.BackColor = Color.Maroon;
             btnRemove.Enabled = false;
             btnRemove.BackColor = Color.Maroon;
+            btnCancel.Enabled = false;
+            btnCancel.BackColor = Color.Maroon;
 
         }
         private void habilitarCampos()
@@ -50,6 +56,8 @@ namespace Livraria
             btnSave.Enabled = true;
             btnSave.BackColor = Color.DarkRed;
             habilitarCampos();
+            btnCancel.Enabled = true;
+            btnCancel.BackColor = Color.DarkRed;
         
         }
 
@@ -99,6 +107,7 @@ namespace Livraria
 
         private void SearchInput_TextChanged(object sender, EventArgs e)
         {
+        
             if (SearchInput.Text != "")
             {
                 try { 
@@ -241,6 +250,8 @@ namespace Livraria
 
         private void btn_Publisher_Click(object sender, EventArgs e)
         {
+            btnCancel.Enabled = true;
+            btnCancel.BackColor = Color.DarkRed;
             SearchInput.Enabled = true;
             dataView.Enabled = true;
             dataView.Visible = true;
@@ -264,6 +275,8 @@ namespace Livraria
             dataView.Visible = false;
             btn_PublisherBooks.BackColor = Color.Maroon;
             btn_Publisher.BackColor = Color.Firebrick;
+            btnCancel.Enabled = true;
+            btnCancel.BackColor = Color.DarkRed;
         }
 
         private void dataGridBook_DoubleClick(object sender, EventArgs e)

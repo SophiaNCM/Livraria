@@ -52,6 +52,12 @@
     <Compile Include="BookControl.Designer.cs">
       <DependentUpon>BookControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="CategoryControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CategoryControl1.Designer.cs">
+      <DependentUpon>CategoryControl1.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </Compile>
     <EmbeddedResource Include="BookControl.resx">
       <DependentUpon>BookControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CategoryControl1.resx">
+      <DependentUpon>CategoryControl1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientControl.resx">
       <DependentUpon>ClientControl.cs</DependentUpon>

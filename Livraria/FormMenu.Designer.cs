@@ -42,11 +42,12 @@
             this.btnClient = new System.Windows.Forms.Button();
             this.btnEmployee = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.publisherControl1 = new Livraria.PublisherControl();
             this.bookControl1 = new Livraria.BookControl();
             this.phoneControl1 = new Livraria.PhoneControl();
             this.clientControl1 = new Livraria.ClientControl();
             this.employeeControl1 = new Livraria.EmployeeControl();
-            this.publisherControl1 = new Livraria.PublisherControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
@@ -260,6 +261,30 @@
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
             // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.DarkRed;
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnClose.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnClose.Location = new System.Drawing.Point(1233, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(47, 30);
+            this.btnClose.TabIndex = 6;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // publisherControl1
+            // 
+            this.publisherControl1.BackColor = System.Drawing.Color.MistyRose;
+            this.publisherControl1.Location = new System.Drawing.Point(320, 0);
+            this.publisherControl1.Name = "publisherControl1";
+            this.publisherControl1.Size = new System.Drawing.Size(960, 739);
+            this.publisherControl1.TabIndex = 5;
+            // 
             // bookControl1
             // 
             this.bookControl1.BackColor = System.Drawing.Color.MistyRose;
@@ -299,27 +324,20 @@
             this.employeeControl1.Size = new System.Drawing.Size(960, 739);
             this.employeeControl1.TabIndex = 1;
             // 
-            // publisherControl1
-            // 
-            this.publisherControl1.BackColor = System.Drawing.Color.MistyRose;
-            this.publisherControl1.Location = new System.Drawing.Point(320, 0);
-            this.publisherControl1.Name = "publisherControl1";
-            this.publisherControl1.Size = new System.Drawing.Size(960, 739);
-            this.publisherControl1.TabIndex = 5;
-            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(1280, 739);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.publisherControl1);
             this.Controls.Add(this.bookControl1);
             this.Controls.Add(this.phoneControl1);
             this.Controls.Add(this.clientControl1);
             this.Controls.Add(this.employeeControl1);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormMenu";
             this.Text = "FormMenu";
             this.Load += new System.EventHandler(this.FormMenu_Load);
@@ -351,5 +369,6 @@
         private PhoneControl phoneControl1;
         private BookControl bookControl1;
         private PublisherControl publisherControl1;
+        private System.Windows.Forms.Button btnClose;
     }
 }

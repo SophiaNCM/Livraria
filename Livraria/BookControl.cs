@@ -336,5 +336,10 @@ namespace Livraria
         {
 
         }
+
+        private void titleText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
