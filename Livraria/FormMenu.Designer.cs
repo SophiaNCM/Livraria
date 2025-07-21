@@ -43,6 +43,7 @@
             this.btnEmployee = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
+            this.categoryControl11 = new Livraria.CategoryControl1();
             this.publisherControl1 = new Livraria.PublisherControl();
             this.bookControl1 = new Livraria.BookControl();
             this.phoneControl1 = new Livraria.PhoneControl();
@@ -73,6 +74,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(320, 739);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // User
             // 
@@ -186,6 +188,7 @@
             this.btnCategory.TabIndex = 5;
             this.btnCategory.Text = "Categorias";
             this.btnCategory.UseVisualStyleBackColor = false;
+            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
             // 
             // btnBook
             // 
@@ -263,6 +266,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.BackColor = System.Drawing.Color.DarkRed;
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.FlatAppearance.BorderSize = 0;
@@ -276,6 +280,14 @@
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // categoryControl11
+            // 
+            this.categoryControl11.BackColor = System.Drawing.Color.MistyRose;
+            this.categoryControl11.Location = new System.Drawing.Point(320, -3);
+            this.categoryControl11.Name = "categoryControl11";
+            this.categoryControl11.Size = new System.Drawing.Size(960, 739);
+            this.categoryControl11.TabIndex = 7;
             // 
             // publisherControl1
             // 
@@ -331,6 +343,7 @@
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(1280, 739);
             this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.categoryControl11);
             this.Controls.Add(this.publisherControl1);
             this.Controls.Add(this.bookControl1);
             this.Controls.Add(this.phoneControl1);
@@ -370,5 +383,6 @@
         private BookControl bookControl1;
         private PublisherControl publisherControl1;
         private System.Windows.Forms.Button btnClose;
+        private CategoryControl1 categoryControl11;
     }
 }

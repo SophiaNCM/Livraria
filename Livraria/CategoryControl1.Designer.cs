@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.categoryInput = new System.Windows.Forms.TextBox();
+            this.CategoryTitle = new System.Windows.Forms.Label();
+            this.lbl_Category = new System.Windows.Forms.Label();
             this.PasswordInput = new System.Windows.Forms.TextBox();
+            this.idOutput = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.labelId = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnChange = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
-            this.CategoryTitle = new System.Windows.Forms.Label();
-            this.categoryInput = new System.Windows.Forms.TextBox();
-            this.lbl_Category = new System.Windows.Forms.Label();
-            this.idOutput = new System.Windows.Forms.Label();
-            this.labelId = new System.Windows.Forms.Label();
             this.dataView = new System.Windows.Forms.DataGridView();
             this.searchCategory = new System.Windows.Forms.TextBox();
             this.Search = new System.Windows.Forms.Label();
@@ -71,6 +71,38 @@
             this.panel1.Size = new System.Drawing.Size(277, 739);
             this.panel1.TabIndex = 3;
             // 
+            // categoryInput
+            // 
+            this.categoryInput.Enabled = false;
+            this.categoryInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.categoryInput.Location = new System.Drawing.Point(95, 139);
+            this.categoryInput.MaxLength = 80;
+            this.categoryInput.Name = "categoryInput";
+            this.categoryInput.Size = new System.Drawing.Size(134, 25);
+            this.categoryInput.TabIndex = 50;
+            // 
+            // CategoryTitle
+            // 
+            this.CategoryTitle.AutoSize = true;
+            this.CategoryTitle.Font = new System.Drawing.Font("Malgun Gothic", 18F, System.Drawing.FontStyle.Bold);
+            this.CategoryTitle.ForeColor = System.Drawing.Color.White;
+            this.CategoryTitle.Location = new System.Drawing.Point(90, 35);
+            this.CategoryTitle.Name = "CategoryTitle";
+            this.CategoryTitle.Size = new System.Drawing.Size(123, 32);
+            this.CategoryTitle.TabIndex = 43;
+            this.CategoryTitle.Text = "Categoria";
+            // 
+            // lbl_Category
+            // 
+            this.lbl_Category.AutoSize = true;
+            this.lbl_Category.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.lbl_Category.ForeColor = System.Drawing.Color.White;
+            this.lbl_Category.Location = new System.Drawing.Point(17, 139);
+            this.lbl_Category.Name = "lbl_Category";
+            this.lbl_Category.Size = new System.Drawing.Size(79, 19);
+            this.lbl_Category.TabIndex = 49;
+            this.lbl_Category.Text = "Categoria:";
+            // 
             // PasswordInput
             // 
             this.PasswordInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
@@ -78,6 +110,16 @@
             this.PasswordInput.Name = "PasswordInput";
             this.PasswordInput.Size = new System.Drawing.Size(0, 25);
             this.PasswordInput.TabIndex = 12;
+            // 
+            // idOutput
+            // 
+            this.idOutput.AutoSize = true;
+            this.idOutput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.idOutput.ForeColor = System.Drawing.Color.White;
+            this.idOutput.Location = new System.Drawing.Point(91, 100);
+            this.idOutput.Name = "idOutput";
+            this.idOutput.Size = new System.Drawing.Size(0, 19);
+            this.idOutput.TabIndex = 48;
             // 
             // btnCancel
             // 
@@ -95,6 +137,18 @@
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // labelId
+            // 
+            this.labelId.AutoSize = true;
+            this.labelId.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.labelId.ForeColor = System.Drawing.Color.White;
+            this.labelId.Location = new System.Drawing.Point(23, 100);
+            this.labelId.Name = "labelId";
+            this.labelId.Size = new System.Drawing.Size(62, 19);
+            this.labelId.TabIndex = 47;
+            this.labelId.Text = "Codigo:";
             // 
             // btnRemove
             // 
@@ -129,6 +183,7 @@
             this.btnChange.TabIndex = 3;
             this.btnChange.Text = "Alterar";
             this.btnChange.UseVisualStyleBackColor = false;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // btnSave
             // 
@@ -146,6 +201,7 @@
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Salvar";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnNew
             // 
@@ -161,95 +217,43 @@
             this.btnNew.TabIndex = 1;
             this.btnNew.Text = "Novo";
             this.btnNew.UseVisualStyleBackColor = true;
-            // 
-            // CategoryTitle
-            // 
-            this.CategoryTitle.AutoSize = true;
-            this.CategoryTitle.Font = new System.Drawing.Font("Malgun Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.CategoryTitle.ForeColor = System.Drawing.Color.White;
-            this.CategoryTitle.Location = new System.Drawing.Point(90, 35);
-            this.CategoryTitle.Name = "CategoryTitle";
-            this.CategoryTitle.Size = new System.Drawing.Size(123, 32);
-            this.CategoryTitle.TabIndex = 43;
-            this.CategoryTitle.Text = "Categoria";
-            // 
-            // categoryInput
-            // 
-            this.categoryInput.Enabled = false;
-            this.categoryInput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.categoryInput.Location = new System.Drawing.Point(95, 139);
-            this.categoryInput.MaxLength = 80;
-            this.categoryInput.Name = "categoryInput";
-            this.categoryInput.Size = new System.Drawing.Size(134, 25);
-            this.categoryInput.TabIndex = 50;
-            // 
-            // lbl_Category
-            // 
-            this.lbl_Category.AutoSize = true;
-            this.lbl_Category.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.lbl_Category.ForeColor = System.Drawing.Color.White;
-            this.lbl_Category.Location = new System.Drawing.Point(29, 139);
-            this.lbl_Category.Name = "lbl_Category";
-            this.lbl_Category.Size = new System.Drawing.Size(52, 19);
-            this.lbl_Category.TabIndex = 49;
-            this.lbl_Category.Text = "Titulo:";
-            // 
-            // idOutput
-            // 
-            this.idOutput.AutoSize = true;
-            this.idOutput.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.idOutput.ForeColor = System.Drawing.Color.White;
-            this.idOutput.Location = new System.Drawing.Point(91, 100);
-            this.idOutput.Name = "idOutput";
-            this.idOutput.Size = new System.Drawing.Size(0, 19);
-            this.idOutput.TabIndex = 48;
-            // 
-            // labelId
-            // 
-            this.labelId.AutoSize = true;
-            this.labelId.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.labelId.ForeColor = System.Drawing.Color.White;
-            this.labelId.Location = new System.Drawing.Point(23, 100);
-            this.labelId.Name = "labelId";
-            this.labelId.Size = new System.Drawing.Size(62, 19);
-            this.labelId.TabIndex = 47;
-            this.labelId.Text = "Codigo:";
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // dataView
             // 
             this.dataView.BackgroundColor = System.Drawing.Color.MistyRose;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataView.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataView.GridColor = System.Drawing.Color.DarkRed;
             this.dataView.Location = new System.Drawing.Point(55, 139);
             this.dataView.MultiSelect = false;
             this.dataView.Name = "dataView";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataView.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataView.Size = new System.Drawing.Size(563, 263);
             this.dataView.TabIndex = 67;

@@ -267,6 +267,9 @@ namespace Livraria
 
         private void dataView_DoubleClick(object sender, EventArgs e)
         {
+            nameText.BackColor = Color.White;
+            UserInput.BackColor = Color.White;
+            PasswordInput.BackColor = Color.White;
             getEmployee();
             if (btnOff.Checked)
             {
